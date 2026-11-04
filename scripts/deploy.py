@@ -69,6 +69,22 @@ def input_schema(spec):
     }
 
 
+def output_schema(spec):
+    # Store publication requires an output schema; it points the Output tab and the run's
+    # `output` field at the default dataset, rendered through the "overview" view.
+    return {
+        "actorOutputSchemaVersion": 1,
+        "title": f"{spec['title']}: output",
+        "properties": {
+            "overview": {
+                "type": "string",
+                "title": "Results",
+                "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview",
+            }
+        },
+    }
+
+
 def source_files(name, spec):
     d = ROOT / "actors" / name
     actor_json = {
@@ -79,6 +95,7 @@ def source_files(name, spec):
         "version": "0.0",
         "buildTag": "latest",
         "input": "./input_schema.json",
+        "output": "./output_schema.json",
         "dockerfile": "./Dockerfile",
         "readme": "../README.md",
         "storages": {
@@ -97,6 +114,7 @@ def source_files(name, spec):
     files = {
         ".actor/actor.json": json.dumps(actor_json, indent=2),
         ".actor/input_schema.json": json.dumps(input_schema(spec), indent=2),
+        ".actor/output_schema.json": json.dumps(output_schema(spec), indent=2),
         "Dockerfile": DOCKERFILE,
         "requirements.txt": "apify>=2.7\nhttpx>=0.27\n" + "".join(x + "\n" for x in spec.get("requirements", [])),
         "README.md": (d / "README.md").read_text(),
