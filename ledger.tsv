@@ -1,0 +1,2 @@
+actor	source	price_per_event_usd	event	competitor_prices	test_run_rows	store_url	status
+minneapolis-building-permits	https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/CCS_Permits/FeatureServer/0	0.003	Permit	pink_comic/building-permits-construction-leads $0.002; intelscrape/building-permit-scraper $0.005; hanamira/building-permits-search $0.004	10	https://apify.com/cheerful_term/minneapolis-building-permits	priced-awaiting-store-terms

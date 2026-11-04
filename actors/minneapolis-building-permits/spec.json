@@ -1,0 +1,80 @@
+{
+  "title": "Minneapolis Building Permits",
+  "description": "Live building permits from the City of Minneapolis: address, permit type, work type, valuation, fees, contractor/applicant, status and dates. Filter by issue date, type, value, neighborhood or keyword.",
+  "seoTitle": "Minneapolis Building Permits Scraper (Live City Data)",
+  "categories": [
+    "REAL_ESTATE",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/CCS_Permits/FeatureServer/0",
+  "price": 0.003,
+  "eventTitle": "Permit",
+  "eventDescription": "One building permit record returned",
+  "competitors": "pink_comic/building-permits-construction-leads $0.002; intelscrape/building-permit-scraper $0.005; hanamira/building-permits-search $0.004",
+  "input": {
+    "properties": {
+      "issuedSince": {
+        "title": "Issued on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only permits issued on or after this date.",
+        "prefill": "2026-10-01"
+      },
+      "permitType": {
+        "title": "Permit type",
+        "type": "string",
+        "editor": "select",
+        "description": "Leave empty for all.",
+        "enum": [
+          "Commercial",
+          "Residential",
+          "Plumbing",
+          "Mechanical",
+          "Electrical",
+          "Wrecking",
+          "Fire",
+          "Sign",
+          "Elevator",
+          "Sewer",
+          "Water"
+        ],
+        "nullable": true
+      },
+      "workType": {
+        "title": "Work type contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Remodel, New, Addition, Repair, Demolition"
+      },
+      "minValue": {
+        "title": "Minimum permit value (USD)",
+        "type": "integer",
+        "editor": "number",
+        "minimum": 0
+      },
+      "neighborhood": {
+        "title": "Neighborhood",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Exact neighborhood name, e.g. Whittier"
+      },
+      "keyword": {
+        "title": "Description keyword",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Matches the permit's work description, e.g. roof, solar, kitchen"
+      }
+    }
+  },
+  "defaultMax": 100,
+  "why": "Minneapolis publishes every permit it issues, usually the same day. This actor reads that feed live, pages past the 2,000-row ArcGIS cap, and returns clean rows with ISO dates and coordinates.",
+  "useCases": [
+    "Contractors and suppliers finding jobs as soon as a permit is pulled (roofing, HVAC, solar, kitchens)",
+    "Real-estate investors watching renovation and new-construction activity by neighborhood",
+    "Lenders, insurers and analysts tracking construction value over time"
+  ],
+  "limits": [
+    "City of Minneapolis only. Owner and applicant names appear exactly as the city publishes them.",
+    "Valuation is the applicant's declared value; trade permits often show 0."
+  ]
+}
