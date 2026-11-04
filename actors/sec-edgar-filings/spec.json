@@ -1,0 +1,49 @@
+{
+  "title": "SEC EDGAR Company Filings",
+  "description": "List a public company's SEC filings from EDGAR by ticker, name or CIK: form type, filing and report dates, 8-K items, description and direct links to the document and filing index. Filter by form (10-K, 10-Q, 8-K, S-1, DEF 14A...) and date.",
+  "categories": [
+    "BUSINESS",
+    "AUTOMATION"
+  ],
+  "source": "https://data.sec.gov/submissions/",
+  "price": 0.002,
+  "eventTitle": "Filing",
+  "eventDescription": "One SEC filing returned",
+  "competitors": "constructive_calm/sec-edgar-scraper $0.0004; ryanclinton/edgar-filing-search $0.002; pink_comic/sec-edgar-company-filings $0.002",
+  "useCases": [
+    "Analysts and AI agents pulling every 8-K or 10-K for a watchlist",
+    "Compliance and IR teams monitoring peers",
+    "Journalists tracking material events"
+  ],
+  "input": {
+    "properties": {
+      "companies": {
+        "title": "Companies",
+        "type": "array",
+        "editor": "stringList",
+        "description": "Tickers, exact company names or CIK numbers.",
+        "prefill": [
+          "AAPL",
+          "TSLA"
+        ]
+      },
+      "forms": {
+        "title": "Form types (comma-separated)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. 10-K,10-Q,8-K. Empty for all.",
+        "prefill": "8-K,10-Q"
+      },
+      "filedSince": {
+        "title": "Filed on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only filings on or after this date.",
+        "prefill": "2025-01-01"
+      }
+    }
+  },
+  "limits": [
+    "Reads EDGAR's 'recent' submissions block (the last ~1,000 filings per company)."
+  ]
+}

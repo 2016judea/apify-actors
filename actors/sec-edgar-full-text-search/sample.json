@@ -1,0 +1,27 @@
+{
+  "companies": [
+    "THEGLOBE COM INC  (TGLO)  (CIK 0001066684)"
+  ],
+  "ciks": [
+    "0001066684"
+  ],
+  "form": "10-K",
+  "rootForms": [
+    "10-K"
+  ],
+  "filingDate": "2026-04-01",
+  "periodEnding": "2025-12-31",
+  "fileType": "10-K",
+  "fileDescription": "10-K",
+  "accessionNumber": "0001104659-26-038019",
+  "sics": [
+    "7310"
+  ],
+  "bizStates": [
+    "FL"
+  ],
+  "incStates": [
+    "DE"
+  ],
+  "documentUrl": "https://www.sec.gov/Archives/edgar/data/1066684/000110465926038019/tglo-20251231x10k.htm"
+}

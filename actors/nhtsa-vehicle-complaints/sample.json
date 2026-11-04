@@ -1,0 +1,15 @@
+{
+  "odiNumber": 11499648,
+  "manufacturer": "Tesla, Inc.",
+  "crash": false,
+  "fire": false,
+  "numberOfInjuries": 0,
+  "numberOfDeaths": 0,
+  "dateOfIncident": "12/31/2022",
+  "dateComplaintFiled": "12/31/2022",
+  "vin": "5YJ3E1EC3NF",
+  "components": "BACK OVER PREVENTION,FORWARD COLLISION AVOIDANCE",
+  "summary": "Ghost forward collision warnings appear from time to time even tho there is no one in front of the vehicle. Sometimes when the vehicle in front of me is turning left/right the collision warning will alarm me of possible impact even tho there was no real threat for anything to happen. Also, it happens when you want to park behind a parked vehicle (it happened to me today) and alerted me of a possible crash, while i was crawling to park. I wouldn't mind these ghost warnings, but since I am using Tesla Insurance which gives monthly insurance premiums based on the safety performance of the driver (FCW is one of those and the most important one) this is always impacting me financially at the end of the month. Tesla should be forbidden to use a technology that is not perfect in order to determine the price of the insurance.",
+  "vehicle": "2022 Tesla Model 3",
+  "productCount": 1
+}

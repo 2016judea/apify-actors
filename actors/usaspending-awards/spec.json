@@ -1,0 +1,91 @@
+{
+  "title": "USAspending Federal Contracts & Grants",
+  "description": "Search federal contract, grant, loan and IDV awards on USAspending.gov: recipient, UEI, amount, outlays, description, agency, NAICS/PSC, dates and place of performance, with a link to each award. Filter by keyword, recipient, agency, NAICS, state, amount.",
+  "categories": [
+    "LEAD_GENERATION",
+    "BUSINESS"
+  ],
+  "source": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+  "price": 0.003,
+  "eventTitle": "Award",
+  "eventDescription": "One federal award returned",
+  "competitors": "fortuitous_pirate/sam-gov-scraper $0.003; omarchydev/government-contract-monitor $0.02; jungle_synthesizer/samgov-scraper $0.0001",
+  "why": "Who the government is paying, for what, and when the work ends. The source of truth for incumbent research, teaming and competitor tracking.",
+  "useCases": [
+    "GovCon BD teams finding incumbents and recompete targets by NAICS or agency",
+    "Subcontractors finding primes that won work in their state",
+    "Analysts and reporters tracking federal spending by recipient"
+  ],
+  "input": {
+    "properties": {
+      "awardType": {
+        "title": "Award type",
+        "type": "string",
+        "editor": "select",
+        "description": "Which kind of award.",
+        "enum": [
+          "contracts",
+          "grants",
+          "loans",
+          "direct_payments",
+          "idvs"
+        ],
+        "prefill": "contracts",
+        "default": "contracts"
+      },
+      "keywords": {
+        "title": "Keywords (comma-separated)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Matched against award descriptions.",
+        "prefill": "cybersecurity"
+      },
+      "recipient": {
+        "title": "Recipient name",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Booz Allen"
+      },
+      "agency": {
+        "title": "Awarding agency (top tier)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Exact name, e.g. Department of Defense"
+      },
+      "naics": {
+        "title": "NAICS codes (comma-separated)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. 541512,541519"
+      },
+      "state": {
+        "title": "Place of performance state",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Two-letter code, e.g. MN"
+      },
+      "minAmount": {
+        "title": "Minimum award amount (USD)",
+        "type": "integer",
+        "editor": "number",
+        "description": "Only awards at or above this amount."
+      },
+      "startDate": {
+        "title": "Action date from (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Awards with activity on or after this date.",
+        "prefill": "2025-10-01"
+      },
+      "endDate": {
+        "title": "Action date to (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Awards with activity on or before this date."
+      }
+    }
+  },
+  "limits": [
+    "Sorted by award amount, largest first. USAspending lags FPDS by a few days."
+  ]
+}

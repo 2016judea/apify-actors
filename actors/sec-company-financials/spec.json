@@ -1,0 +1,56 @@
+{
+  "title": "SEC Company Financials (XBRL)",
+  "description": "Annual or quarterly financials for any US-listed company from SEC XBRL data: revenue, gross profit, operating and net income, diluted EPS, assets, liabilities, equity, cash, operating cash flow, capex, long-term debt and shares.",
+  "categories": [
+    "BUSINESS",
+    "AI"
+  ],
+  "source": "https://data.sec.gov/api/xbrl/companyfacts/",
+  "price": 0.005,
+  "eventTitle": "Financial period",
+  "eventDescription": "One company fiscal period of financials",
+  "competitors": "jungle_synthesizer/bundesanzeiger-crawler $0.0025; foxlabs/thailand-company-data $0.025; regdata/poland-krs-financial-scraper $0.08",
+  "why": "Numbers as the company tagged them in its own 10-K/10-Q, one row per period, no scraping of finance portals.",
+  "useCases": [
+    "Analysts and AI agents building comps and screens",
+    "Lenders checking a borrower's reported financials",
+    "Founders benchmarking public competitors"
+  ],
+  "input": {
+    "properties": {
+      "tickers": {
+        "title": "Tickers",
+        "type": "array",
+        "editor": "stringList",
+        "description": "Stock tickers or CIKs.",
+        "prefill": [
+          "MSFT",
+          "GOOGL"
+        ]
+      },
+      "period": {
+        "title": "Period",
+        "type": "string",
+        "editor": "select",
+        "description": "Annual (10-K) or quarterly (10-Q).",
+        "enum": [
+          "annual",
+          "quarterly"
+        ],
+        "prefill": "annual",
+        "default": "annual"
+      },
+      "years": {
+        "title": "Years",
+        "type": "integer",
+        "editor": "number",
+        "description": "How many years back.",
+        "prefill": 5
+      }
+    }
+  },
+  "limits": [
+    "Quarterly rows cover discrete quarters reported on 10-Q; Q4 is in the annual figure.",
+    "Companies that use non-standard tags may leave a metric blank."
+  ]
+}

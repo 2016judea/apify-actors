@@ -1,0 +1,28 @@
+{
+  "ticker": "NVDA",
+  "issuer": "NVIDIA CORP",
+  "filingDate": "2026-10-13",
+  "insider": "Parker Nicholas P.",
+  "role": "EVP, Worldwide Field Ops",
+  "transactionDate": "2026-09-09",
+  "security": "Common Stock",
+  "code": "A",
+  "codeMeaning": "Grant/award",
+  "acquiredDisposed": "A",
+  "shares": 160418.0,
+  "pricePerShare": 0.0,
+  "value": 0.0,
+  "sharesOwnedAfter": 160418.0,
+  "directOrIndirect": "D",
+  "accessionNumber": "0002152188-26-000007",
+  "url": "https://www.sec.gov/Archives/edgar/data/1045810/000215218826000007/wk-form4a_1791925767.xml",
+  "owners": [
+    {
+      "name": "Parker Nicholas P.",
+      "isDirector": "0",
+      "isOfficer": "1",
+      "officerTitle": "EVP, Worldwide Field Ops",
+      "isTenPercentOwner": "0"
+    }
+  ]
+}

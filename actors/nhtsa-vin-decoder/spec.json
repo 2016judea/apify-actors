@@ -1,0 +1,33 @@
+{
+  "title": "VIN Decoder (NHTSA vPIC, Batch)",
+  "description": "Decode up to thousands of VINs with NHTSA's official vPIC database: make, model, year, trim, body class, engine, displacement, fuel type, drive type, plant, GVWR, safety equipment and error codes. 50 VINs per request.",
+  "categories": [
+    "AUTOMATION",
+    "ECOMMERCE"
+  ],
+  "source": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVINValuesBatch/",
+  "price": 0.002,
+  "eventTitle": "Decoded VIN",
+  "eventDescription": "One VIN decoded",
+  "competitors": "easyapi/vin-decoder $0.00299; trev0n/fast-vin-decoder $0.002; s-r/vin-decoder $0.0015",
+  "useCases": [
+    "Dealers, auctions and insurers enriching VIN lists",
+    "Fleet and parts businesses",
+    "AI agents answering 'what car is this VIN'"
+  ],
+  "input": {
+    "properties": {
+      "vins": {
+        "title": "VINs",
+        "type": "array",
+        "editor": "stringList",
+        "description": "17-character VINs, one per line.",
+        "prefill": [
+          "1HGCM82633A004352",
+          "5YJ3E1EA7KF317000"
+        ]
+      }
+    }
+  },
+  "defaultMax": 1000
+}

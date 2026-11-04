@@ -1,0 +1,20 @@
+{
+  "company": "Apple Inc.",
+  "cik": 320193,
+  "tickers": [
+    "AAPL"
+  ],
+  "form": "8-K",
+  "filingDate": "2026-11-02",
+  "reportDate": "2026-11-02",
+  "acceptanceDateTime": "2026-11-02T21:30:23.000Z",
+  "accessionNumber": "0000320193-26-000024",
+  "description": "8-K",
+  "items": "2.02,9.01",
+  "size": 420455,
+  "documentUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000024/aapl-20261102.htm",
+  "indexUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000024/0000320193-26-000024-index.htm",
+  "sic": "3571",
+  "sicDescription": "Electronic Computers",
+  "stateOfIncorporation": "CA"
+}

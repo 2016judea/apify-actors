@@ -1,0 +1,35 @@
+{
+  "title": "FDIC Failed Banks",
+  "description": "Every US bank failure the FDIC has recorded since 1934: bank name, cert, city and state, failure date, resolution type, acquirer path, assets and deposits at failure, and estimated cost to the Deposit Insurance Fund.",
+  "categories": [
+    "BUSINESS",
+    "NEWS"
+  ],
+  "source": "https://api.fdic.gov/banks/failures",
+  "price": 0.002,
+  "eventTitle": "Failed bank",
+  "eventDescription": "One bank failure returned",
+  "competitors": "jungle_synthesizer/fdic-bank-crawler $0.001; pink_comic/fdic-bankfind-search $0.002; scrapemint/us-bank-data-finder $0.005",
+  "useCases": [
+    "Credit and banking analysts studying failure history",
+    "Journalists",
+    "Risk models needing a labeled failure set"
+  ],
+  "input": {
+    "properties": {
+      "state": {
+        "title": "State",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Two-letter code, e.g. CA"
+      },
+      "failedSince": {
+        "title": "Failed on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only failures on or after this date.",
+        "prefill": "2008-01-01"
+      }
+    }
+  }
+}

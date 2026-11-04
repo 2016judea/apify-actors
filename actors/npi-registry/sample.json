@@ -1,0 +1,18 @@
+{
+  "npi": "1538287404",
+  "type": "Organization",
+  "name": "ABBOTT NORTHWESTERN HOSPITAL",
+  "status": "A",
+  "enumerationDate": "2007-03-27",
+  "lastUpdated": "2008-06-13",
+  "authorizedOfficial": "JANE NEWMAN",
+  "authorizedOfficialTitle": "Physical Therapist",
+  "primaryTaxonomy": "Physical Therapist",
+  "taxonomyCode": "225100000X",
+  "licenseState": "MN",
+  "address": "800 E 28TH ST",
+  "city": "MINNEAPOLIS",
+  "state": "MN",
+  "zip": "55407",
+  "phone": "612-863-4447"
+}

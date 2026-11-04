@@ -1,0 +1,51 @@
+{
+  "title": "NSF Research Awards",
+  "description": "National Science Foundation awards: award ID, title, awardee institution, city and state, obligated and estimated total amounts, start and expiry dates, PI and program officer, program and abstract, with a link to the award.",
+  "categories": [
+    "BUSINESS",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://api.nsf.gov/services/v1/awards.json",
+  "price": 0.002,
+  "eventTitle": "Award",
+  "eventDescription": "One NSF award returned",
+  "competitors": "pink_comic/nih-reporter-search $0.002; nexgendata/us-grants-funding-tracker $0.05; nexgendata/startup-funding-tracker $0.08",
+  "useCases": [
+    "Lab-equipment and software vendors finding newly funded groups",
+    "SBIR/STTR watchers tracking small-business awards",
+    "Research offices benchmarking"
+  ],
+  "input": {
+    "properties": {
+      "keyword": {
+        "title": "Keyword",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. quantum",
+        "prefill": "quantum"
+      },
+      "awardeeState": {
+        "title": "Awardee state",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Two-letter code"
+      },
+      "awardee": {
+        "title": "Awardee name",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Institution or company"
+      },
+      "startDateFrom": {
+        "title": "Start date from (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Awards starting on or after this date.",
+        "prefill": "2026-01-01"
+      }
+    }
+  },
+  "limits": [
+    "NSF's API returns at most 3,000 results per query."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "title": "SEC EDGAR Full-Text Search",
+  "description": "Search the full text of every SEC filing since 2001 with EDGAR full-text search: any phrase across 10-Ks, 8-Ks, S-1s, proxies and exhibits. Returns company, CIK, form, dates, state, SIC and a direct link to the matching document.",
+  "categories": [
+    "BUSINESS",
+    "AI"
+  ],
+  "source": "https://efts.sec.gov/LATEST/search-index",
+  "price": 0.002,
+  "eventTitle": "Matching document",
+  "eventDescription": "One filing document matching the query",
+  "competitors": "pink_comic/sec-edgar-company-filings $0.002; foo121/sec-fulltext-monitor $0.005; ryanclinton/edgar-filing-search $0.002",
+  "why": "Find every company that said a phrase: 'going concern', 'material weakness', a supplier's name, a drug, a lawsuit. Boolean and exact-phrase queries work as on efts.",
+  "useCases": [
+    "Short-sellers and credit analysts screening for distress language",
+    "Sales teams finding companies that name a technology or vendor",
+    "Lawyers and researchers tracing a term across filings"
+  ],
+  "input": {
+    "properties": {
+      "query": {
+        "title": "Search query",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Exact phrases in double quotes. e.g. \"going concern\"",
+        "prefill": "\"going concern\""
+      },
+      "forms": {
+        "title": "Form types (comma-separated)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. 10-K,8-K",
+        "prefill": "10-K"
+      },
+      "startDate": {
+        "title": "Filed from (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Start of filing date range.",
+        "prefill": "2026-01-01"
+      },
+      "endDate": {
+        "title": "Filed to (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "End of filing date range."
+      }
+    }
+  },
+  "limits": [
+    "EDGAR caps a query at 10,000 hits; narrow by form and date for more."
+  ]
+}

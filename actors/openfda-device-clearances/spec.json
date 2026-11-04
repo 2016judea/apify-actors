@@ -1,0 +1,47 @@
+{
+  "title": "FDA 510(k) Medical Device Clearances",
+  "description": "FDA 510(k) premarket clearances via openFDA: K number, device name, applicant and contact address, product code, decision and date, review panel, device class and specialty, with a link to the FDA record.",
+  "categories": [
+    "BUSINESS",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://api.fda.gov/device/510k.json",
+  "price": 0.002,
+  "eventTitle": "Clearance",
+  "eventDescription": "One 510(k) clearance returned",
+  "competitors": "pink_comic/fda-510k-medical-device-clearances $0.002; ryanclinton/fda-device-recalls $0.002; scrapemint/fda-device-manufacturer-leads $0.01",
+  "useCases": [
+    "Medtech sales and regulatory consultants finding companies that just cleared a device",
+    "Competitive intelligence by product code",
+    "Investors tracking a company's pipeline"
+  ],
+  "input": {
+    "properties": {
+      "decidedSince": {
+        "title": "Decided on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only decisions on or after this date.",
+        "prefill": "2026-08-01"
+      },
+      "applicant": {
+        "title": "Applicant",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Exact company name"
+      },
+      "deviceName": {
+        "title": "Device name contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. catheter"
+      },
+      "productCode": {
+        "title": "Product code",
+        "type": "string",
+        "editor": "textfield",
+        "description": "3-letter FDA product code"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "Award ID": "FA862118F6251",
+  "Recipient Name": "LOCKHEED MARTIN CORPORATION",
+  "Recipient UEI": "KDT2YLB34NT6",
+  "Award Amount": 666315748.84,
+  "Total Outlays": 242708.65,
+  "Description": "IGF::OT::IGF  AFSOC ACTS AWARD OF CONTRACT FOR CLS, ENGINEERING, INSTRUCTION, CYBERSECURITY, DMO",
+  "Start Date": "2018-02-08",
+  "End Date": "2027-01-31",
+  "Awarding Agency": "Department of Defense",
+  "Awarding Sub Agency": "Department of the Air Force",
+  "Funding Agency": "Department of Defense",
+  "Contract Award Type": "DELIVERY ORDER",
+  "NAICS": {
+    "code": "336413",
+    "description": "OTHER AIRCRAFT PARTS AND AUXILIARY EQUIPMENT MANUFACTURING"
+  },
+  "PSC": {
+    "code": "J069",
+    "description": "MAINT/REPAIR/REBUILD OF EQUIPMENT- TRAINING AIDS AND DEVICES"
+  },
+  "Place of Performance State Code": "FL",
+  "Place of Performance Zip5": "32825",
+  "Last Modified Date": "2026-06-15 07:29:54",
+  "awarding_agency_id": 1173,
+  "agency_slug": "department-of-defense",
+  "url": "https://www.usaspending.gov/award/CONT_AWD_FA862118F6251_9700_FA862115D6276_9700"
+}

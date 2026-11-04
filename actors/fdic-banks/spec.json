@@ -1,0 +1,57 @@
+{
+  "title": "FDIC Bank Directory & Financials",
+  "description": "Every FDIC-insured bank: name, cert, RSSD, address, holding company, regulator, charter class, total assets, deposits, net income, ROA, ROE, office count, website and coordinates. Filter by state, city, name or minimum assets.",
+  "categories": [
+    "BUSINESS",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://api.fdic.gov/banks/institutions",
+  "price": 0.002,
+  "eventTitle": "Bank",
+  "eventDescription": "One FDIC-insured institution returned",
+  "competitors": "ryanclinton/fdic-bank-search $0.002; jungle_synthesizer/fdic-bank-crawler $0.001; nexgendata/fdic-bank-financials-health $0.05",
+  "useCases": [
+    "Fintech and bank-software sales teams building target lists by asset size",
+    "Analysts screening community banks",
+    "M&A advisers mapping holding companies"
+  ],
+  "input": {
+    "properties": {
+      "state": {
+        "title": "State",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Two-letter code, e.g. MN",
+        "prefill": "MN"
+      },
+      "city": {
+        "title": "City",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. MINNEAPOLIS"
+      },
+      "name": {
+        "title": "Name contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Community"
+      },
+      "minAssetsThousands": {
+        "title": "Minimum total assets ($ thousands)",
+        "type": "integer",
+        "editor": "number",
+        "description": "e.g. 1000000 for $1B."
+      },
+      "activeOnly": {
+        "title": "Active banks only",
+        "type": "boolean",
+        "editor": "checkbox",
+        "description": "Exclude closed or merged institutions.",
+        "default": true
+      }
+    }
+  },
+  "limits": [
+    "Financial fields are from the latest quarterly Call Report the FDIC has loaded (REPDTE)."
+  ]
+}

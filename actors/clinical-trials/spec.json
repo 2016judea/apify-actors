@@ -1,0 +1,54 @@
+{
+  "title": "ClinicalTrials.gov Study Search",
+  "description": "Search ClinicalTrials.gov studies by condition, intervention, sponsor, location and status: NCT ID, titles, status, phases, enrollment, start and completion dates, sponsor and collaborators, sites, and summary.",
+  "categories": [
+    "BUSINESS",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://clinicaltrials.gov/api/v2/studies",
+  "price": 0.002,
+  "eventTitle": "Study",
+  "eventDescription": "One clinical study returned",
+  "competitors": "ryanclinton/clinical-trial-tracker $0.002; pink_comic/clinicaltrials-gov-search $0.002; alizarin_refrigerator-owner/clinicaltrials-gov-api---clinical-study-data $0.00001",
+  "useCases": [
+    "CROs and site networks finding sponsors recruiting in their area",
+    "Pharma competitive intelligence",
+    "Patient-recruitment and research teams"
+  ],
+  "input": {
+    "properties": {
+      "condition": {
+        "title": "Condition",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. obesity",
+        "prefill": "obesity"
+      },
+      "intervention": {
+        "title": "Intervention",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. semaglutide"
+      },
+      "sponsor": {
+        "title": "Sponsor",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Novo Nordisk"
+      },
+      "location": {
+        "title": "Location",
+        "type": "string",
+        "editor": "textfield",
+        "description": "City, state or country, e.g. Minneapolis"
+      },
+      "status": {
+        "title": "Overall status",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. RECRUITING, COMPLETED, NOT_YET_RECRUITING",
+        "prefill": "RECRUITING"
+      }
+    }
+  }
+}

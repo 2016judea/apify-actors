@@ -1,0 +1,23 @@
+{
+  "ticker": "MSFT",
+  "company": "MICROSOFT CORP",
+  "cik": 789019,
+  "periodEnd": "2026-06-30",
+  "period": "annual",
+  "revenue": 331839000000,
+  "filed": "2026-07-29",
+  "form": "10-K",
+  "fiscalYear": 2026,
+  "netIncome": 133749000000,
+  "operatingIncome": 155237000000,
+  "grossProfit": 225465000000,
+  "eps": 17.95,
+  "totalAssets": 758376000000,
+  "totalLiabilities": 315989000000,
+  "equity": 442387000000,
+  "cash": 20935000000,
+  "operatingCashFlow": 182935000000,
+  "capex": 115948000000,
+  "longTermDebt": 31067000000,
+  "sharesOutstanding": 7427000000
+}

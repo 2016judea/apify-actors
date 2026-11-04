@@ -1,0 +1,54 @@
+{
+  "title": "Grants.gov Federal Grant Opportunities",
+  "description": "Open and forecasted federal grant opportunities from Grants.gov: opportunity number, title, agency, status, open and close dates, assistance listing numbers, and a link. Filter by keyword, agency, eligibility and funding category.",
+  "categories": [
+    "LEAD_GENERATION",
+    "BUSINESS"
+  ],
+  "source": "https://api.grants.gov/v1/api/search2",
+  "price": 0.003,
+  "eventTitle": "Opportunity",
+  "eventDescription": "One grant opportunity returned",
+  "competitors": "datapilot/grants-funding-opportunities-harvester $0.002; scrapepilot/grant-foundation-opportunities-scraper $0.004; alizarin_refrigerator-owner/grants-gov-api---federal-grant-opportunities $0.00001",
+  "useCases": [
+    "Nonprofits and grant writers finding open funding",
+    "Universities and cities tracking forecasted grants",
+    "Consultants building pipelines by agency"
+  ],
+  "input": {
+    "properties": {
+      "keyword": {
+        "title": "Keyword",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. broadband, housing, workforce",
+        "prefill": "housing"
+      },
+      "status": {
+        "title": "Status",
+        "type": "string",
+        "editor": "textfield",
+        "description": "forecasted|posted|closed|archived, pipe-separated.",
+        "prefill": "forecasted|posted"
+      },
+      "agency": {
+        "title": "Agency code",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. HHS, DOE, USDA"
+      },
+      "eligibility": {
+        "title": "Eligibility code",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. 25 (others), 12 (nonprofits 501c3)"
+      },
+      "category": {
+        "title": "Funding category code",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. HO (housing), ED (education)"
+      }
+    }
+  }
+}

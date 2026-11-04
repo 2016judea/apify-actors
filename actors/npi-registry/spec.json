@@ -1,0 +1,87 @@
+{
+  "title": "NPI Registry: Healthcare Provider Search",
+  "description": "Search the CMS NPPES NPI Registry for doctors, clinics, pharmacies, therapists and every other US healthcare provider: NPI, name, credential, primary taxonomy, license state, practice address and phone, authorized official, enumeration date.",
+  "categories": [
+    "LEAD_GENERATION",
+    "BUSINESS"
+  ],
+  "source": "https://npiregistry.cms.hhs.gov/api/",
+  "price": 0.002,
+  "eventTitle": "Provider",
+  "eventDescription": "One NPI provider record returned",
+  "competitors": "labrat011/npi-provider-contact-finder $0.001; sourabhbgp/npi-registry-scraper $0.002; pink_comic/nppes-npi-registry $0.002",
+  "why": "The federal registry every billing provider must be in, searched live. Phone numbers are the practice location numbers providers publish in NPPES.",
+  "useCases": [
+    "Healthcare sales and recruiting teams building provider lists by specialty and city",
+    "Payers and credentialing teams verifying an NPI",
+    "Researchers mapping provider supply"
+  ],
+  "input": {
+    "properties": {
+      "taxonomy": {
+        "title": "Specialty / taxonomy",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Physical Therapist, Dentist, Pharmacy",
+        "prefill": "Physical Therapist"
+      },
+      "city": {
+        "title": "City",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Minneapolis",
+        "prefill": "Minneapolis"
+      },
+      "state": {
+        "title": "State",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Two-letter code",
+        "prefill": "MN"
+      },
+      "zip": {
+        "title": "ZIP code",
+        "type": "string",
+        "editor": "textfield",
+        "description": "5-digit ZIP"
+      },
+      "providerType": {
+        "title": "Provider type",
+        "type": "string",
+        "editor": "select",
+        "description": "NPI-1 individuals, NPI-2 organizations.",
+        "enum": [
+          "NPI-1",
+          "NPI-2"
+        ]
+      },
+      "organizationName": {
+        "title": "Organization name",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Organization name (wildcard * allowed)"
+      },
+      "lastName": {
+        "title": "Last name",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Individual's last name"
+      },
+      "firstName": {
+        "title": "First name",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Individual's first name"
+      },
+      "npi": {
+        "title": "NPI number",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Look up one NPI"
+      }
+    }
+  },
+  "limits": [
+    "The NPPES API returns at most 1,200 results per search; split by city or ZIP for more."
+  ]
+}

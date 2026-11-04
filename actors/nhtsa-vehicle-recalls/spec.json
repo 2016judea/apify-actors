@@ -1,0 +1,35 @@
+{
+  "title": "NHTSA Vehicle Recalls by Make, Model, Year",
+  "description": "Every NHTSA safety recall for a list of vehicles: campaign number, component, summary, consequence, remedy, manufacturer, report date, and whether to park outside or stop driving.",
+  "categories": [
+    "AUTOMATION",
+    "ECOMMERCE"
+  ],
+  "source": "https://api.nhtsa.gov/recalls/recallsByVehicle",
+  "price": 0.002,
+  "eventTitle": "Recall",
+  "eventDescription": "One vehicle recall returned",
+  "competitors": "pink_comic/nhtsa-vehicle-recalls $0.002; sourabhbgp/nhtsa-vehicle-intelligence $0.002; pink_comic/nhtsa-vehicle-complaints $0.002",
+  "useCases": [
+    "Dealers and used-car buyers checking open recalls across inventory",
+    "Fleet managers",
+    "Auto insurers and repair shops"
+  ],
+  "input": {
+    "properties": {
+      "vehicles": {
+        "title": "Vehicles",
+        "type": "array",
+        "editor": "json",
+        "description": "List of {make, model, year} objects.",
+        "prefill": [
+          {
+            "make": "Honda",
+            "model": "Civic",
+            "year": 2020
+          }
+        ]
+      }
+    }
+  }
+}

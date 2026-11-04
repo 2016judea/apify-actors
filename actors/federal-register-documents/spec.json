@@ -1,0 +1,68 @@
+{
+  "title": "Federal Register: Rules, Notices & Comment Deadlines",
+  "description": "Search the daily Federal Register: proposed rules, final rules, notices and presidential documents with agency, abstract, publication, effective and comment-close dates, docket and RIN, CFR parts and links. Filter by term, type, agency, date or open-for-comment.",
+  "categories": [
+    "NEWS",
+    "AUTOMATION"
+  ],
+  "source": "https://www.federalregister.gov/api/v1/documents.json",
+  "price": 0.002,
+  "eventTitle": "Document",
+  "eventDescription": "One Federal Register document returned",
+  "competitors": "ryanclinton/federal-register-search $0.002; pink_comic/federal-register-search $0.002; jungle_synthesizer/eur-lex-eu-legislation-scraper $0.005",
+  "useCases": [
+    "Compliance and regulatory teams watching rules in their industry",
+    "Trade associations tracking comment deadlines",
+    "AI agents answering 'what changed this week for X'"
+  ],
+  "input": {
+    "properties": {
+      "query": {
+        "title": "Search term",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Full-text term, e.g. PFAS",
+        "prefill": "PFAS"
+      },
+      "types": {
+        "title": "Document types",
+        "type": "array",
+        "editor": "select",
+        "description": "RULE, PRORULE, NOTICE, PRESDOCU",
+        "items": {
+          "type": "string",
+          "enum": [
+            "RULE",
+            "PRORULE",
+            "NOTICE",
+            "PRESDOCU"
+          ]
+        },
+        "prefill": [
+          "RULE",
+          "PRORULE"
+        ]
+      },
+      "agency": {
+        "title": "Agency slug",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. environmental-protection-agency"
+      },
+      "publishedSince": {
+        "title": "Published on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only documents published on or after this date.",
+        "prefill": "2026-01-01"
+      },
+      "openForComment": {
+        "title": "Open for comment only",
+        "type": "boolean",
+        "editor": "checkbox",
+        "description": "Comment period has not closed.",
+        "default": false
+      }
+    }
+  }
+}

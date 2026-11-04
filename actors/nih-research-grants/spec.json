@@ -1,0 +1,57 @@
+{
+  "title": "NIH RePORTER Research Grants",
+  "description": "NIH-funded research projects from RePORTER: project number, title, fiscal year, award amount with direct and indirect costs, organization and location, principal investigators, institute, activity code, dates, abstract and terms.",
+  "categories": [
+    "BUSINESS",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://api.reporter.nih.gov/v2/projects/search",
+  "price": 0.002,
+  "eventTitle": "Project",
+  "eventDescription": "One NIH project returned",
+  "competitors": "pink_comic/nih-reporter-search $0.002; caffein.dev/grants-actor $0.002; foo121/nih-reporter-scraper $0.004",
+  "useCases": [
+    "Life-science vendors finding labs with fresh funding",
+    "Biotech BD and investors tracking research areas",
+    "Grant writers and research offices benchmarking"
+  ],
+  "input": {
+    "properties": {
+      "text": {
+        "title": "Search text",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Matched against title, terms and abstract.",
+        "prefill": "CRISPR"
+      },
+      "fiscalYears": {
+        "title": "Fiscal years (comma-separated)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. 2025,2026",
+        "prefill": "2026"
+      },
+      "orgState": {
+        "title": "Organization state",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Two-letter code, e.g. MN"
+      },
+      "orgName": {
+        "title": "Organization name",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. UNIVERSITY OF MINNESOTA"
+      },
+      "piName": {
+        "title": "PI name",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Principal investigator name"
+      }
+    }
+  },
+  "limits": [
+    "Sorted by award amount. RePORTER caps a search at 15,000 results."
+  ]
+}

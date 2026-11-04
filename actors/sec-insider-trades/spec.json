@@ -1,0 +1,49 @@
+{
+  "title": "SEC Form 4 Insider Trades",
+  "description": "Insider buys and sells from SEC Form 4 filings for any ticker: insider name and role, transaction date, code (open-market purchase, sale, grant, option exercise), shares, price, dollar value, holdings after, and a link to the filing.",
+  "categories": [
+    "BUSINESS",
+    "AUTOMATION"
+  ],
+  "source": "https://www.sec.gov/cgi-bin/browse-edgar (Form 4 XML)",
+  "price": 0.004,
+  "eventTitle": "Insider transaction",
+  "eventDescription": "One Form 4 transaction line returned",
+  "competitors": "ryanclinton/sec-insider-trading $0.002; lokki/sec-insider-intelligence $0.005; scrapemint/sec-form4-insider-tracker $0.025",
+  "why": "Parsed straight from each Form 4's XML, one row per transaction line, with the code translated. Tick open-market only to see conviction buys and sells.",
+  "useCases": [
+    "Investors and newsletters tracking insider conviction",
+    "Quant and AI agents building insider-sentiment signals",
+    "IR and compliance teams monitoring their own filings"
+  ],
+  "input": {
+    "properties": {
+      "tickers": {
+        "title": "Tickers",
+        "type": "array",
+        "editor": "stringList",
+        "description": "Stock tickers.",
+        "prefill": [
+          "NVDA"
+        ]
+      },
+      "filedSince": {
+        "title": "Filed on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only Form 4s filed on or after this date.",
+        "prefill": "2026-08-01"
+      },
+      "openMarketOnly": {
+        "title": "Open-market buys and sells only",
+        "type": "boolean",
+        "editor": "checkbox",
+        "description": "Only transaction codes P and S.",
+        "default": false
+      }
+    }
+  },
+  "limits": [
+    "Insiders are named exactly as on the public Form 4."
+  ]
+}

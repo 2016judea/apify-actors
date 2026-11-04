@@ -1,0 +1,71 @@
+{
+  "title": "FDA Recalls (Food, Drugs, Devices)",
+  "description": "FDA enforcement reports for food, drug and medical-device recalls via openFDA: recalling firm, product, reason, classification (I/II/III), status, distribution pattern, quantity, dates and location. Filter by type, date, class, state, firm or keyword.",
+  "categories": [
+    "BUSINESS",
+    "NEWS"
+  ],
+  "source": "https://api.fda.gov/{food,drug,device}/enforcement.json",
+  "price": 0.002,
+  "eventTitle": "Recall",
+  "eventDescription": "One FDA enforcement record returned",
+  "competitors": "ryanclinton/fda-food-recall-monitor $0.002; copious_atoll/fda-food-recalls $0.001; inexhaustible_glass/fda-intelligence-scraper $0.005",
+  "useCases": [
+    "Food and pharma QA teams monitoring suppliers",
+    "Retailers and distributors checking what they carry",
+    "Law firms and journalists tracking Class I recalls"
+  ],
+  "input": {
+    "properties": {
+      "productType": {
+        "title": "Product type",
+        "type": "string",
+        "editor": "select",
+        "description": "Which FDA enforcement feed.",
+        "enum": [
+          "food",
+          "drug",
+          "device"
+        ],
+        "prefill": "food",
+        "default": "food"
+      },
+      "reportedSince": {
+        "title": "Reported on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only recalls reported on or after this date.",
+        "prefill": "2026-07-01"
+      },
+      "classification": {
+        "title": "Classification",
+        "type": "string",
+        "editor": "select",
+        "description": "Class I is the most serious.",
+        "enum": [
+          "Class I",
+          "Class II",
+          "Class III"
+        ]
+      },
+      "state": {
+        "title": "Firm state",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Two-letter code"
+      },
+      "firm": {
+        "title": "Recalling firm",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Exact firm name"
+      },
+      "keyword": {
+        "title": "Keyword",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Matched against product description and reason, e.g. listeria"
+      }
+    }
+  }
+}

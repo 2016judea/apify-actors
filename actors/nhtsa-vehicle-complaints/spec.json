@@ -1,0 +1,44 @@
+{
+  "title": "NHTSA Vehicle Owner Complaints",
+  "description": "Owner complaints filed with NHTSA for any make, model and year: complaint date, incident date, components, crash/fire flags, injuries and deaths, and the owner's own description of what failed. Filter by component.",
+  "categories": [
+    "AUTOMATION",
+    "ECOMMERCE"
+  ],
+  "source": "https://api.nhtsa.gov/complaints/complaintsByVehicle",
+  "price": 0.002,
+  "eventTitle": "Complaint",
+  "eventDescription": "One owner complaint returned",
+  "competitors": "pink_comic/nhtsa-vehicle-complaints $0.002; sourabhbgp/nhtsa-vehicle-intelligence $0.002; copious_atoll/nhtsa-complaints $0.0005",
+  "useCases": [
+    "Lemon-law and product-liability firms finding defect patterns",
+    "Used-car buyers and reviewers",
+    "Automotive analysts tracking failure rates"
+  ],
+  "input": {
+    "properties": {
+      "vehicles": {
+        "title": "Vehicles",
+        "type": "array",
+        "editor": "json",
+        "description": "List of {make, model, year} objects.",
+        "prefill": [
+          {
+            "make": "Tesla",
+            "model": "Model 3",
+            "year": 2022
+          }
+        ]
+      },
+      "component": {
+        "title": "Component contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. ELECTRICAL, STEERING, AIR BAGS"
+      }
+    }
+  },
+  "limits": [
+    "NHTSA strips complainant identity before publishing; none is returned."
+  ]
+}
