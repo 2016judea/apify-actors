@@ -140,6 +140,13 @@ def default_input(spec):
 
 
 def ledger_update(name, **fields):
+    import fcntl
+    with open(ROOT / ".ledger.lock", "w") as lk:
+        fcntl.flock(lk, fcntl.LOCK_EX)
+        _ledger_update(name, **fields)
+
+
+def _ledger_update(name, **fields):
     p = ROOT / "ledger.tsv"
     cols = ["actor", "source", "price_per_event_usd", "event", "competitor_prices", "test_run_rows", "store_url", "status"]
     rows = {}
@@ -162,6 +169,7 @@ def main():
     no_publish = "--no-publish" in sys.argv
     no_run = "--no-run" in sys.argv
     spec = json.loads((ROOT / "actors" / name / "spec.json").read_text())
+    assert len(spec["description"]) <= 300, "Apify caps description at 300 chars"
     body = {
         "name": name,
         "title": spec["title"],

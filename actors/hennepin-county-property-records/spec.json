@@ -1,0 +1,63 @@
+{
+  "categories": [
+    "REAL_ESTATE"
+  ],
+  "source": "https://gis.hennepin.us/arcgis/rest/services/HennepinData/LAND_PROPERTY/MapServer/1",
+  "title": "Hennepin County Property Records (Minneapolis Metro)",
+  "description": "Parcel records for every property in Hennepin County, MN (Minneapolis and 44 suburbs): owner and taxpayer as published, address, property type, market and taxable value, last sale price and date, taxes, delinquency year, year built, lot area and coordinates.",
+  "price": 0.003,
+  "eventTitle": "Parcel",
+  "eventDescription": "One parcel record returned",
+  "competitors": "epctex/redfin-scraper $0.001; one-api/apartments-property-scraper $0.003; memo23/crexi-ppe $0.0019",
+  "why": "The county's own parcel file, one row per property, with the tax and sale fields listing sites don't show. Search by street, city, parcel ID or owner.",
+  "useCases": [
+    "Investors and wholesalers pulling owner, value and last sale for a street or city",
+    "Title, lending and insurance teams verifying a parcel",
+    "Tax-delinquency screening (EARLIEST_DELQ_YR)"
+  ],
+  "input": {
+    "properties": {
+      "street": {
+        "title": "Street name starts with",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. LYNDALE AVE S (the county writes streets in capitals)",
+        "prefill": "LYNDALE AVE S"
+      },
+      "houseNumber": {
+        "title": "House number",
+        "type": "integer",
+        "editor": "number",
+        "description": "Exact house number."
+      },
+      "city": {
+        "title": "City",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. MINNEAPOLIS, EDINA, BLOOMINGTON"
+      },
+      "pid": {
+        "title": "Parcel ID (PID)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "13-digit Hennepin PID"
+      },
+      "ownerName": {
+        "title": "Owner name contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. LLC"
+      },
+      "delinquentOnly": {
+        "title": "Tax-delinquent only",
+        "type": "boolean",
+        "editor": "checkbox",
+        "description": "Only parcels with a delinquent tax year.",
+        "default": false
+      }
+    }
+  },
+  "limits": [
+    "Hennepin County only. Owner and taxpayer names are the county's published fields."
+  ]
+}

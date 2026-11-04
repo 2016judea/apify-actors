@@ -1,0 +1,65 @@
+{
+  "title": "Minneapolis Police Incidents",
+  "description": "Police incident reports from the Minneapolis Police Department: offense, description, precinct, neighborhood, public block address, dates and coordinates. Filter by year, date, offense or neighborhood.",
+  "categories": [
+    "NEWS",
+    "REAL_ESTATE"
+  ],
+  "source": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Police_Incidents_2026/FeatureServer/0",
+  "price": 0.002,
+  "eventTitle": "Incident",
+  "eventDescription": "One police incident returned",
+  "competitors": "ryanclinton/uk-police-crime-data $0.002; chrisp1211/uk-crime-scraper-max $0.001; devon_gtme/police-uk-crime $0.001",
+  "why": "Crime by block and type, straight from the city's incident file, for safety scores, site selection and reporting.",
+  "useCases": [
+    "Real-estate and insurance analysts scoring blocks",
+    "Security companies and retailers doing site selection",
+    "Journalists tracking offense trends"
+  ],
+  "input": {
+    "properties": {
+      "year": {
+        "title": "Year",
+        "type": "string",
+        "editor": "select",
+        "description": "Which year's incident file to read.",
+        "enum": [
+          "2026",
+          "2025",
+          "2024",
+          "2023",
+          "2022",
+          "2021",
+          "2020",
+          "2019",
+          "2018",
+          "2017"
+        ],
+        "prefill": "2026",
+        "default": "2026"
+      },
+      "reportedSince": {
+        "title": "Reported on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only incidents reported on or after this date.",
+        "prefill": "2026-10-01"
+      },
+      "offense": {
+        "title": "Offense/description contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. BURG, THEFT, ASSAULT"
+      },
+      "neighborhood": {
+        "title": "Neighborhood",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Exact neighborhood name, e.g. Whittier"
+      }
+    }
+  },
+  "limits": [
+    "Addresses are block-level as MPD publishes them. No victim or suspect data exists in the source."
+  ]
+}

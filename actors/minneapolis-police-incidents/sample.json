@@ -1,0 +1,20 @@
+{
+  "publicaddress": "0016XX 44TH AVE N",
+  "caseNumber": "MP2026717565",
+  "precinct": "4",
+  "reportedDate": "2026-11-02T00:00:00Z",
+  "reportedTime": 1012,
+  "beginDate": "2026-10-29T00:00:00Z",
+  "reportedDateTime": "2026-11-02T10:12:00Z",
+  "beginTime": 1000,
+  "offense": "THFTSW",
+  "description": "THEFT BY SWINDLE",
+  "UCRCode": "07",
+  "enteredDate": "2026-11-02T00:00:00Z",
+  "centerLong": -93.30123,
+  "centerLat": 45.03545,
+  "neighborhood": "Victory",
+  "lastchanged": 1793577600000,
+  "LastUpdateDateETL": "2026-11-03T07:50:28Z",
+  "source": "City of Minneapolis Open Data (opendata.minneapolismn.gov)"
+}

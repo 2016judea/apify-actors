@@ -1,0 +1,39 @@
+{
+  "layer": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Food_Inspections/FeatureServer/0",
+  "order": "DateOfInspection DESC",
+  "filters": [
+    {
+      "input": "businessName",
+      "field": "BusinessName",
+      "op": "like"
+    },
+    {
+      "input": "inspectedSince",
+      "field": "DateOfInspection",
+      "op": "date_gte"
+    },
+    {
+      "input": "result",
+      "field": "InspectionResult",
+      "op": "like"
+    },
+    {
+      "input": "zip",
+      "field": "ZipCode",
+      "op": "eq"
+    }
+  ],
+  "drop": [
+    "OBJECTID",
+    "X_WebMercator",
+    "Y_WebMercator",
+    "AddrNum",
+    "AddrNumSuffix",
+    "StreetName",
+    "StreetType",
+    "PostDir"
+  ],
+  "static": {
+    "source": "City of Minneapolis Open Data (opendata.minneapolismn.gov)"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "title": "Minneapolis Restaurant Health Inspections",
+  "description": "Every food inspection and violation the City of Minneapolis publishes: business, address, risk level, inspection type, result, score, violation text and inspector comments. Filter by business, date, result or ZIP.",
+  "categories": [
+    "LEAD_GENERATION",
+    "BUSINESS"
+  ],
+  "source": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Food_Inspections/FeatureServer/0",
+  "price": 0.004,
+  "eventTitle": "Inspection row",
+  "eventDescription": "One inspection/violation row returned",
+  "competitors": "c0rrupt3d/restaurant-health-inspection-intelligence $0.005; scrapemint/restaurant-inspection-leads $0.01; formal_sadness_xvx/us-food-inspections $0.002",
+  "why": "A failed or re-inspected kitchen is a business that needs help this week: pest control, equipment repair, food-safety training, consultants. The city publishes each inspection line by line.",
+  "useCases": [
+    "Food-safety consultants and pest-control firms finding restaurants with fresh violations",
+    "Restaurant buyers and brokers doing diligence",
+    "Diners and reporters checking a kitchen's record"
+  ],
+  "input": {
+    "properties": {
+      "businessName": {
+        "title": "Business name contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Taco"
+      },
+      "inspectedSince": {
+        "title": "Inspected on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only inspections on or after this date.",
+        "prefill": "2026-09-01"
+      },
+      "result": {
+        "title": "Inspection result contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Fail, Pass, Re-inspection"
+      },
+      "zip": {
+        "title": "ZIP code",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. 55408"
+      }
+    }
+  },
+  "limits": [
+    "Minneapolis-licensed food facilities only. One row per violation line, so one inspection can return several rows."
+  ]
+}

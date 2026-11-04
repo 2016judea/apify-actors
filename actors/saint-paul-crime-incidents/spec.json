@@ -1,0 +1,41 @@
+{
+  "title": "Saint Paul Crime Incidents",
+  "description": "Crime incident reports from the Saint Paul Police Department: case number, date, time, incident type, block, neighborhood, police grid and call disposition. Filter by date, incident or neighborhood.",
+  "categories": [
+    "NEWS",
+    "REAL_ESTATE"
+  ],
+  "source": "https://services1.arcgis.com/9meaaHE3uiba0zr8/arcgis/rest/services/Crime_Incident_Report_-_Dataset/FeatureServer/0",
+  "price": 0.002,
+  "eventTitle": "Incident",
+  "eventDescription": "One crime incident returned",
+  "competitors": "ryanclinton/uk-police-crime-data $0.002; chrisp1211/uk-crime-scraper-max $0.001; devon_gtme/police-uk-crime $0.001",
+  "useCases": [
+    "Safety scoring for real estate and insurance",
+    "Site selection",
+    "Journalism and research"
+  ],
+  "input": {
+    "properties": {
+      "since": {
+        "title": "On or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only incidents on or after this date.",
+        "prefill": "2026-09-01"
+      },
+      "incident": {
+        "title": "Incident contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Burglary, Theft, Auto"
+      },
+      "neighborhood": {
+        "title": "Neighborhood name contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Frogtown"
+      }
+    }
+  }
+}

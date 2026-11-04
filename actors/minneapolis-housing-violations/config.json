@@ -1,0 +1,36 @@
+{
+  "layer": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/CaseViolations/FeatureServer/0",
+  "order": "Processed_Date DESC",
+  "filters": [
+    {
+      "input": "processedSince",
+      "field": "Processed_Date",
+      "op": "date_gte"
+    },
+    {
+      "input": "address",
+      "field": "Display",
+      "op": "like"
+    },
+    {
+      "input": "violation",
+      "field": "Violation_Code_Description",
+      "op": "like"
+    },
+    {
+      "input": "openOnly",
+      "field": "Resolved_Date IS NULL",
+      "op": "bool"
+    }
+  ],
+  "drop": [
+    "OBJECTID",
+    "EAS_Address_ID"
+  ],
+  "rename": {
+    "Display": "address"
+  },
+  "static": {
+    "source": "City of Minneapolis Open Data (opendata.minneapolismn.gov)"
+  }
+}

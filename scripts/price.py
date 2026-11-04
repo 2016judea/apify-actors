@@ -31,7 +31,11 @@ def lookup(queries):
     seen = {}
     for q in queries:
         d = httpx.get("https://api.apify.com/v2/store", params={"search": q, "limit": 40}, timeout=60).json()["data"]["items"]
+        words = [w.lower() for w in q.split() if len(w) > 3]
         for i in d:
+            text = ((i.get("title") or "") + " " + (i.get("name") or "")).lower()
+            if words and not any(w.rstrip("s") in text for w in words):
+                continue
             p = per_result(i.get("currentPricingInfo"))
             if p and p < 1:
                 seen[i["username"] + "/" + i["name"]] = (i.get("stats", {}).get("totalUsers", 0), p)

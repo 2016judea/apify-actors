@@ -1,0 +1,31 @@
+{
+  "layer": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/On_Sale_Liquor/FeatureServer/0",
+  "layerByInput": [
+    "licenseKind",
+    {
+      "on-sale": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/On_Sale_Liquor/FeatureServer/0",
+      "off-sale": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Off_Sale_Liquor/FeatureServer/0"
+    }
+  ],
+  "order": "issueDate DESC",
+  "filters": [
+    {
+      "input": "name",
+      "field": "licenseName",
+      "op": "like"
+    },
+    {
+      "input": "issuedSince",
+      "field": "issueDate",
+      "op": "date_gte"
+    }
+  ],
+  "drop": [
+    "OBJECTID",
+    "xWebMercator",
+    "yWebMercator"
+  ],
+  "static": {
+    "source": "City of Minneapolis Open Data (opendata.minneapolismn.gov)"
+  }
+}

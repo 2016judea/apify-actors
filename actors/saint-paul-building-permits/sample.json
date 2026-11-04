@@ -1,0 +1,22 @@
+{
+  "ADDRESS": "1349 ASBURY ST",
+  "STATUS": "Active/Issued",
+  "ISSUEDATE": "2025-06-30T18:07:02Z",
+  "EXPIRATIONDATE": "2025-12-27T00:00:00Z",
+  "FINALDATE": null,
+  "FOLDER_TYPE": "Building Permit",
+  "SUB_TYPE": "Single Family Dwelling",
+  "WORK_TYPE": "Express Repair",
+  "FOLDERDESCRIPTION": "Rebuild chimney from roof up to current/code height.",
+  "PIN": "222923320182",
+  "latitude": "44.9819855",
+  "longitude": "-93.16588025",
+  "PERMITNUMBER": "25-046592",
+  "EST_VALUE_OF_WORK": null,
+  "STATE_VALUATION": 3995,
+  "WARD": "4",
+  "DISTRICT": 10,
+  "CONTRACTORNAME": "TIMOTHY HOLMLUND HOLMLUND MASONRY COMPANY",
+  "CONTRACTORADDRESS": "1410 2ND ST N MPLS MN 55411",
+  "source": "City of Saint Paul Open Information (information.stpaul.gov)"
+}

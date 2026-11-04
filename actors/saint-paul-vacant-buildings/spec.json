@@ -1,0 +1,46 @@
+{
+  "title": "Saint Paul Vacant Buildings Register",
+  "description": "Every building on the City of Saint Paul's vacant building register: address, parcel ID, vacant-since date, dwelling type, category, ward, district and coordinates.",
+  "categories": [
+    "REAL_ESTATE",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://services1.arcgis.com/9meaaHE3uiba0zr8/arcgis/rest/services/VacantBuildings/FeatureServer/0",
+  "price": 0.005,
+  "eventTitle": "Vacant building",
+  "eventDescription": "One registered vacant building returned",
+  "competitors": "seibs.co/property-records-intel $0.008; nexgendata/google-maps-extractor $0.007; dominvo/distressed-property-ai-scraper $0.06",
+  "why": "A registered vacant building is the most direct distress signal a city publishes. The category says how serious: 1 is secured and maintained, 3 is the worst.",
+  "useCases": [
+    "Investors and wholesalers finding vacant property",
+    "Contractors and board-up services",
+    "Neighborhood groups tracking blight"
+  ],
+  "input": {
+    "properties": {
+      "category": {
+        "title": "Category",
+        "type": "string",
+        "editor": "select",
+        "description": "Vacant building category (1 least to 3 most serious). Empty for all.",
+        "enum": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "vacantSince": {
+        "title": "Vacant on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only buildings registered vacant on or after this date."
+      },
+      "ward": {
+        "title": "Ward",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Ward number, e.g. 6"
+      }
+    }
+  }
+}

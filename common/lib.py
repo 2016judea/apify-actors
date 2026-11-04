@@ -177,3 +177,59 @@ def compact(d: dict) -> dict:
 
 def dumps(x) -> str:
     return json.dumps(x, default=str)
+
+
+def _clause(op: str, field: str, v) -> str | None:
+    if v is None or v == "" or v == []:
+        return None
+    if op == "eq":
+        return f"{field} = {sql_quote(v)}" if isinstance(v, str) else f"{field} = {v}"
+    if op == "ieq":
+        return f"UPPER({field}) = {sql_quote(str(v).upper())}"
+    if op == "like":
+        return f"UPPER({field}) LIKE {sql_quote('%' + str(v).upper() + '%')}"
+    if op == "prefix":
+        return f"UPPER({field}) LIKE {sql_quote(str(v).upper() + '%')}"
+    if op == "gte":
+        return f"{field} >= {float(v)}"
+    if op == "lte":
+        return f"{field} <= {float(v)}"
+    if op == "date_gte":
+        return f"{field} >= DATE {sql_quote(v)}"
+    if op == "date_lte":
+        return f"{field} <= DATE {sql_quote(v)}"
+    if op == "in":
+        vals = v if isinstance(v, list) else [x.strip() for x in str(v).split(",") if x.strip()]
+        return f"{field} IN ({','.join(sql_quote(x) for x in vals)})"
+    if op == "sgte":
+        return f"{field} >= {sql_quote(v)}"
+    if op == "slte":
+        return f"{field} <= {sql_quote(v)}"
+    if op == "bool":
+        return field if v else None
+    raise ValueError(op)
+
+
+async def arcgis_actor(cfg: dict, inp: dict, client: Client, emit) -> None:
+    """Config-driven ArcGIS actor: filters map input keys to SQL clauses."""
+    layer = cfg["layer"]
+    if "layerByInput" in cfg:
+        key, table = cfg["layerByInput"]
+        layer = table[inp.get(key) or next(iter(table))]
+    where = [cfg.get("baseWhere", "1=1")]
+    for f in cfg.get("filters", []):
+        c = _clause(f["op"], f["field"], inp.get(f["input"]))
+        if c:
+            where.append(c)
+    drop = set(cfg.get("drop", []))
+    rename = cfg.get("rename", {})
+    dates = cfg.get("dates")
+    async for r in arcgis_query(client, layer, where=" AND ".join(where), order_by=cfg.get("order"), out_fields=cfg.get("outFields", "*"),
+                                limit=int(inp.get("maxItems") or 100), geometry=cfg.get("geometry", False),
+                                page_size=cfg.get("pageSize", 1000)):
+        for k in drop:
+            r.pop(k, None)
+        r = iso_dates(r, dates)
+        out = {rename.get(k, k): (v.strip() if isinstance(v, str) else v) for k, v in r.items()}
+        out.update(cfg.get("static", {}))
+        await emit(out)

@@ -1,0 +1,35 @@
+{
+  "layer": "https://services1.arcgis.com/9meaaHE3uiba0zr8/arcgis/rest/services/Resident_Service_Requests/FeatureServer/0",
+  "order": "REQUEST_DATE DESC",
+  "filters": [
+    {
+      "input": "requestedSince",
+      "field": "REQUEST_DATE",
+      "op": "date_gte"
+    },
+    {
+      "input": "type",
+      "field": "REQUEST_TYPE",
+      "op": "like"
+    },
+    {
+      "input": "status",
+      "field": "STATUS",
+      "op": "like"
+    }
+  ],
+  "drop": [
+    "OBJECTID",
+    "PROPX",
+    "PROPY",
+    "COUNT_",
+    "REGEX"
+  ],
+  "rename": {
+    "LATITUE": "latitude",
+    "LONGITUTE": "longitude"
+  },
+  "static": {
+    "source": "City of Saint Paul Open Information (information.stpaul.gov)"
+  }
+}

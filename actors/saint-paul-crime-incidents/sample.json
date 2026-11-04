@@ -1,0 +1,15 @@
+{
+  "CASE_NUMBER": 26199331,
+  "DATE": "2026-11-03T17:49:00Z",
+  "TIME": null,
+  "CODE": 600,
+  "INCIDENT_TYPE": "THEFT EXCEPT AUTO THEFT",
+  "INCIDENT": "Theft",
+  "POLICE_GRID_NUMBER": 112,
+  "NEIGHBORHOOD_NUMBER": 5,
+  "NEIGHBORHOOD_NAME": "5 - Payne/Phalen",
+  "BLOCK": "3XX GROVE ST",
+  "CALL_DISPOSITION_CODE": "R",
+  "CALL_DISPOSITION": "Report Written",
+  "source": "City of Saint Paul Open Information (information.stpaul.gov)"
+}

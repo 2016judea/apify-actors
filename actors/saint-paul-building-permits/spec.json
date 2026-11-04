@@ -1,0 +1,57 @@
+{
+  "title": "Saint Paul Building Permits",
+  "description": "Building permits issued by the City of Saint Paul: address, permit number, type, sub-type, work type, description, estimated value, contractor name and address, status and dates. Filter by date, type, value or contractor.",
+  "categories": [
+    "REAL_ESTATE",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://services1.arcgis.com/9meaaHE3uiba0zr8/arcgis/rest/services/Building_Permits_/FeatureServer/0",
+  "price": 0.003,
+  "eventTitle": "Permit",
+  "eventDescription": "One building permit record returned",
+  "competitors": "pink_comic/building-permits-construction-leads $0.002; intelscrape/building-permit-scraper $0.005; hanamira/building-permits-search $0.004",
+  "why": "Saint Paul publishes each permit with the contractor on it, so this is both a project feed and a contractor activity feed.",
+  "useCases": [
+    "Suppliers and subcontractors finding active projects and the GC running them",
+    "Contractors watching competitors' volume",
+    "Investors tracking renovation by ward"
+  ],
+  "input": {
+    "properties": {
+      "issuedSince": {
+        "title": "Issued on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only permits issued on or after this date.",
+        "prefill": "2025-06-01"
+      },
+      "permitType": {
+        "title": "Permit type contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Building, Plumbing, Mechanical, Electrical, Demolition"
+      },
+      "workType": {
+        "title": "Work type contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Remodel, New, Repair"
+      },
+      "minValue": {
+        "title": "Minimum estimated value (USD)",
+        "type": "integer",
+        "editor": "number",
+        "description": "Only permits at or above this value."
+      },
+      "contractor": {
+        "title": "Contractor name contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Construction"
+      }
+    }
+  },
+  "limits": [
+    "Saint Paul refreshes this layer on its own schedule; at 2026-11-03 the newest record was dated 2025-06-30. Results sort newest first."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "apn": "2202924240101",
+  "licenseNumber": "LIC337736",
+  "licenseType": "BLBrewery",
+  "licenseStatus": "Pending",
+  "liquorType": "On Sale",
+  "issueDate": "2026-10-28T08:23:42Z",
+  "expirationYear": 2027,
+  "expirationDate": "2027-01-01T23:59:00Z",
+  "licenseName": "Inbound Brewco",
+  "address": "701 5TH ST N",
+  "endorsements": "Liquor, On Sale, Taproom Class B Entertainment; Liquor, On Sale, Taproom General Entertainment",
+  "ward": "5",
+  "neighborhood": "North Loop",
+  "lat": 44.98552,
+  "long": -93.28154,
+  "lastUpdateDate": "2026-10-29T18:15:19Z",
+  "source": "City of Minneapolis Open Data (opendata.minneapolismn.gov)"
+}

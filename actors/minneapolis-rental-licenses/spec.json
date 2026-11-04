@@ -1,0 +1,52 @@
+{
+  "title": "Minneapolis Rental Licenses (Landlords)",
+  "description": "Active rental licenses in Minneapolis: address, licensed units, tier, license dates, short-term-rental flag, and the owner and applicant names and mailing addresses the city publishes. Filter by owner, neighborhood or unit count.",
+  "categories": [
+    "REAL_ESTATE",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Active_Rental_Licenses/FeatureServer/0",
+  "price": 0.003,
+  "eventTitle": "License",
+  "eventDescription": "One rental license returned",
+  "competitors": "pink_comic/berkeley-business-license-leads $0.002; plym-actor-factory/us-md-montgomery-housing-licensenumber-portfolio-status-monitor $0.02; prosper_miller/bg-rentals $0.03",
+  "why": "Every rental in Minneapolis must be licensed, so this is the city's own register of who owns rental property and how many units. Search an owner to see their whole portfolio.",
+  "useCases": [
+    "Property managers, insurers and contractors finding landlords by portfolio size",
+    "Investors looking for owners of 2 to 4 unit buildings",
+    "Tenant groups and researchers mapping ownership"
+  ],
+  "input": {
+    "properties": {
+      "ownerName": {
+        "title": "Owner name contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. LLC, or a company name"
+      },
+      "neighborhood": {
+        "title": "Neighborhood",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Exact neighborhood name, e.g. Powderhorn Park"
+      },
+      "minUnits": {
+        "title": "Minimum licensed units",
+        "type": "integer",
+        "editor": "number",
+        "description": "Only licenses with at least this many units.",
+        "prefill": 4
+      },
+      "shortTermRentalOnly": {
+        "title": "Short-term rentals only",
+        "type": "boolean",
+        "editor": "checkbox",
+        "description": "Only licenses flagged as short-term rentals.",
+        "default": false
+      }
+    }
+  },
+  "limits": [
+    "Owner and applicant phone numbers and email addresses are deliberately omitted, even though the city file carries them."
+  ]
+}

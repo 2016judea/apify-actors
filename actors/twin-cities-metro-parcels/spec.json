@@ -1,0 +1,79 @@
+{
+  "title": "Twin Cities Metro Parcels (7 Counties)",
+  "description": "Parcel records for the 7-county Twin Cities metro on one schema: address, owner as published, land/building/total value, taxes, use class, home style, finished sq ft, year built, units, last sale date and value.",
+  "categories": [
+    "REAL_ESTATE"
+  ],
+  "source": "https://arcgis.metc.state.mn.us/data1/rest/services/parcels/Parcels/FeatureServer",
+  "price": 0.003,
+  "eventTitle": "Parcel",
+  "eventDescription": "One parcel record returned",
+  "competitors": "epctex/redfin-scraper $0.001; one-api/apartments-property-scraper $0.003; memo23/crexi-ppe $0.0019",
+  "why": "One schema across seven counties, from the Metropolitan Council's regional parcel dataset, so a search for 'homes built before 1950 in Ramsey County with a sale since 2024' is one input.",
+  "useCases": [
+    "Investors screening the whole metro by value, age and use",
+    "Contractors targeting a housing vintage by city",
+    "Analysts comparing counties on one schema"
+  ],
+  "input": {
+    "properties": {
+      "county": {
+        "title": "County",
+        "type": "string",
+        "editor": "select",
+        "description": "Which county to read.",
+        "enum": [
+          "Anoka",
+          "Carver",
+          "Dakota",
+          "Hennepin",
+          "Ramsey",
+          "Scott",
+          "Washington"
+        ],
+        "prefill": "Ramsey",
+        "default": "Ramsey"
+      },
+      "city": {
+        "title": "City",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. SAINT PAUL, ROSEVILLE (capitals)",
+        "prefill": "SAINT PAUL"
+      },
+      "street": {
+        "title": "Street name contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. GRAND"
+      },
+      "zip": {
+        "title": "ZIP code",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. 55105"
+      },
+      "builtBefore": {
+        "title": "Built before year",
+        "type": "integer",
+        "editor": "number",
+        "description": "Only parcels built before this year."
+      },
+      "minValue": {
+        "title": "Minimum total value (USD)",
+        "type": "integer",
+        "editor": "number",
+        "description": "Only parcels at or above this value."
+      },
+      "ownerName": {
+        "title": "Owner name contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. LLC"
+      }
+    }
+  },
+  "limits": [
+    "Refreshed by the Metropolitan Council on its own schedule (quarterly or so), not daily."
+  ]
+}

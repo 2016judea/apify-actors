@@ -1,0 +1,58 @@
+{
+  "categories": [
+    "REAL_ESTATE"
+  ],
+  "source": "https://gis.hennepin.us/arcgis/rest/services/HennepinData/LAND_PROPERTY/MapServer/1",
+  "title": "Hennepin County Recorded Property Sales",
+  "description": "Recent recorded property sales in Hennepin County, MN (Minneapolis and suburbs): sale price, sale month, deed type, address, property type, market value, year built and coordinates. Filter by city, ZIP, price or sale month.",
+  "price": 0.003,
+  "eventTitle": "Sale",
+  "eventDescription": "One recorded sale returned",
+  "competitors": "scrapesage/redfin-scraper $0.004; haketa/redfin-scraper $0.002; memo23/zoopla-scraper $0.001",
+  "why": "Minnesota is a disclosure state, so the actual price paid is public. This reads the county's last recorded sale per parcel, newest first, which is the comp set appraisers and investors need.",
+  "useCases": [
+    "Investors and agents pulling sold comps by city or ZIP",
+    "Appraisers and lenders checking sale-to-value ratios",
+    "Market reporters tracking prices month by month"
+  ],
+  "input": {
+    "properties": {
+      "soldSince": {
+        "title": "Sold in or after month (YYYYMM)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. 202608",
+        "prefill": "202608"
+      },
+      "city": {
+        "title": "City",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. MINNEAPOLIS"
+      },
+      "zip": {
+        "title": "ZIP code",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. 55406"
+      },
+      "minPrice": {
+        "title": "Minimum sale price (USD)",
+        "type": "integer",
+        "editor": "number",
+        "description": "Only sales at or above this price.",
+        "prefill": 100000
+      },
+      "maxPrice": {
+        "title": "Maximum sale price (USD)",
+        "type": "integer",
+        "editor": "number",
+        "description": "Only sales at or below this price."
+      }
+    }
+  },
+  "limits": [
+    "The county holds the LAST sale per parcel, so earlier sales of the same parcel are not returned.",
+    "Sale month (YYYYMM) is the county's precision."
+  ]
+}

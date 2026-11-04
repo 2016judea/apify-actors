@@ -1,0 +1,32 @@
+{
+  "layer": "https://services1.arcgis.com/9meaaHE3uiba0zr8/arcgis/rest/services/VacantBuildings/FeatureServer/0",
+  "order": "VACANT_AS_OF DESC",
+  "filters": [
+    {
+      "input": "category",
+      "field": "VB_CATEGORY",
+      "op": "eq"
+    },
+    {
+      "input": "vacantSince",
+      "field": "VACANT_AS_OF",
+      "op": "date_gte"
+    },
+    {
+      "input": "ward",
+      "field": "WARD",
+      "op": "eq"
+    }
+  ],
+  "drop": [
+    "OBJECTID",
+    "PROPX",
+    "PROPY"
+  ],
+  "rename": {
+    "LONGGITUDE": "LONGITUDE"
+  },
+  "static": {
+    "source": "City of Saint Paul Open Information (information.stpaul.gov)"
+  }
+}

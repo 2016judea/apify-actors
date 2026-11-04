@@ -1,0 +1,16 @@
+{
+  "CASEID": 201000870899,
+  "ENQUIRYTYPEID": 101000367,
+  "SUBJECTNAME": "Utilities Related",
+  "REASONNAME": "Water",
+  "TYPENAME": "Water Service Issue",
+  "TITLE": "Water Service Issue",
+  "OPENEDDATETIME": "2026-10-12T17:38:31Z",
+  "CASESTATUS": 1,
+  "CLOSEDDATETIME": null,
+  "LastUpdateDate": "2026-10-13T08:05:25Z",
+  "IsAccessibilityRelated": "No",
+  "longitude": -93.21354227149405,
+  "latitude": 44.965464253923706,
+  "source": "City of Minneapolis Open Data (opendata.minneapolismn.gov)"
+}

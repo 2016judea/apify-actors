@@ -1,0 +1,44 @@
+{
+  "title": "Saint Paul Resident Service Requests (311)",
+  "description": "Resident service requests to the City of Saint Paul (its 311): request type, description, status, date, ward, district council and coordinates. Filter by date, type or status.",
+  "categories": [
+    "LEAD_GENERATION",
+    "AUTOMATION"
+  ],
+  "source": "https://services1.arcgis.com/9meaaHE3uiba0zr8/arcgis/rest/services/Resident_Service_Requests/FeatureServer/0",
+  "price": 0.003,
+  "eventTitle": "Request",
+  "eventDescription": "One service request returned",
+  "competitors": "polychrome_haymow/nyc-311-requests $0.003; clearfeedlabs/district-pain-point-tracker $0.003; zentrafoundry/utility-planned-outage-notice-extractor $0.01",
+  "useCases": [
+    "Service businesses finding neighborhoods with demand",
+    "Council and district-council staff tracking requests",
+    "Reporters"
+  ],
+  "input": {
+    "properties": {
+      "requestedSince": {
+        "title": "Requested on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only requests on or after this date.",
+        "prefill": "2025-06-01"
+      },
+      "type": {
+        "title": "Request type contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Pothole, Graffiti, Tall Grass"
+      },
+      "status": {
+        "title": "Status contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Open, Closed"
+      }
+    }
+  },
+  "limits": [
+    "Saint Paul refreshes this layer on its own schedule; at 2026-11-03 the newest record was dated 2025-06-30. Results sort newest first."
+  ]
+}

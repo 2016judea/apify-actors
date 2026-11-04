@@ -1,3 +1,6 @@
 .venv/
 __pycache__/
 storage/
+.ledger.lock
+scratch/
+logs/

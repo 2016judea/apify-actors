@@ -1,0 +1,67 @@
+{
+  "title": "Minneapolis Property Assessments",
+  "description": "The Minneapolis assessor's parcel file: address, owner as published, land/building/total value, property type, zoning, year built, area, bedrooms, bathrooms, units, construction and heating. Filter by address, neighborhood, type, value or owner.",
+  "categories": [
+    "REAL_ESTATE"
+  ],
+  "source": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Assessing_Department_Parcel_Data_2026/FeatureServer/0",
+  "price": 0.003,
+  "eventTitle": "Parcel",
+  "eventDescription": "One assessed parcel returned",
+  "competitors": "great_pistachio/property-tax-scraper $0.005; adventurous_nut/propwire-advanced-property-owner-data-scraper $0.001; memo23/crexi-ppe $0.0019",
+  "why": "The assessor's own record of every parcel in the city, with the building characteristics that listing sites hide behind a login.",
+  "useCases": [
+    "Investors screening by value, units and year built",
+    "Appraisers and tax-appeal consultants pulling comps",
+    "Contractors targeting older housing stock"
+  ],
+  "input": {
+    "properties": {
+      "assessmentYear": {
+        "title": "Assessment year",
+        "type": "string",
+        "editor": "select",
+        "description": "Which assessor file to read.",
+        "enum": [
+          "2026",
+          "2025",
+          "2024",
+          "2023"
+        ],
+        "prefill": "2026",
+        "default": "2026"
+      },
+      "address": {
+        "title": "Address contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. HENNEPIN AVE"
+      },
+      "neighborhood": {
+        "title": "Neighborhood",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Neighborhood name as the assessor writes it, e.g. WHITTIER"
+      },
+      "propertyType": {
+        "title": "Property type contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Residential, Apartment, Commercial"
+      },
+      "minTotalValue": {
+        "title": "Minimum total value (USD)",
+        "type": "integer",
+        "editor": "number",
+        "description": "Only parcels assessed at or above this value.",
+        "prefill": 500000
+      },
+      "ownerName": {
+        "title": "Owner name contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. LLC"
+      }
+    }
+  }
+}

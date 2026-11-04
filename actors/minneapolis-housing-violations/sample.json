@@ -1,0 +1,22 @@
+{
+  "APN": "0102824340176",
+  "address": "3733 23RD AVE S",
+  "Violation_Case_Number": "CE1411105",
+  "RS_Number": null,
+  "Case_Type": "FIS",
+  "Case_Group": "FISCOMM",
+  "Case_Group_Desc": "FIS Commercial Inspection",
+  "Status_Violation_Case": "Enforce",
+  "Milestone_Violation_Case": "Reinspection",
+  "Violation_Code": "F192",
+  "Violation_Code_Description": "Maintenance Of Hood & Duct Systems",
+  "Status_Violation": "",
+  "Processed_Date": "2026-11-02T16:30:55Z",
+  "Resolved_Date": null,
+  "Source": "",
+  "Resolution_Code": "",
+  "Violation_Case_ID": 1902738,
+  "Latitude": 44.93461,
+  "Longitude": -93.2384,
+  "source": "City of Minneapolis Open Data (opendata.minneapolismn.gov)"
+}

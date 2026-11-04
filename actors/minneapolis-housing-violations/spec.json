@@ -1,0 +1,49 @@
+{
+  "title": "Minneapolis Housing & Code Violations",
+  "description": "Housing and property code violations cited by Minneapolis Regulatory Services: address, parcel, case type, violation code and description, status, processed and resolved dates. Filter by date, address, case type or open status.",
+  "categories": [
+    "REAL_ESTATE",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/CaseViolations/FeatureServer/0",
+  "price": 0.004,
+  "eventTitle": "Violation",
+  "eventDescription": "One code violation returned",
+  "competitors": "permitdata/us-code-violations-scraper $0.003; intelscrape/building-permit-scraper $0.005; dominvo/distressed-property-ai-scraper $0.06",
+  "why": "A code violation is a property with a problem and a deadline. Investors read it as a distress signal; contractors read it as a job that has to be done.",
+  "useCases": [
+    "Real-estate investors finding distressed properties",
+    "Contractors (roofing, windows, exterior, snow) finding owners under a repair order",
+    "Tenant advocates and researchers"
+  ],
+  "input": {
+    "properties": {
+      "processedSince": {
+        "title": "Processed on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only violations processed on or after this date.",
+        "prefill": "2026-10-01"
+      },
+      "address": {
+        "title": "Address contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. 31ST ST"
+      },
+      "violation": {
+        "title": "Violation description contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. ROOF, WINDOW, PAINT, GARBAGE"
+      },
+      "openOnly": {
+        "title": "Open violations only",
+        "type": "boolean",
+        "editor": "checkbox",
+        "description": "Exclude resolved violations.",
+        "default": false
+      }
+    }
+  }
+}
