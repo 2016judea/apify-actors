@@ -1,0 +1,63 @@
+{
+  "title": "Socrata Open Data Query (Any City or State Portal)",
+  "description": "Query any Socrata open-data portal (data.cityofchicago.org, data.cityofnewyork.us, data.ny.gov, data.sfgov.org...) by dataset ID with SoQL where, order, select and full-text search. Pages through results automatically.",
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "AUTOMATION"
+  ],
+  "source": "any Socrata SODA endpoint",
+  "price": 0.0015,
+  "eventTitle": "Row",
+  "eventDescription": "One dataset row returned",
+  "competitors": "scrapebench/socrata-multi-state-corporate-business-entity-registry $0.0015; promptica/anac-appalti-italia $0.004; nexgendata/france-pappers-companies $0.08",
+  "useCases": [
+    "Pulling permits, licenses, 311, crashes or inspections from hundreds of US government portals",
+    "Scheduled exports into a warehouse",
+    "AI agents answering questions over open data"
+  ],
+  "input": {
+    "properties": {
+      "domain": {
+        "title": "Portal domain",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. data.cityofchicago.org",
+        "prefill": "data.cityofchicago.org"
+      },
+      "datasetId": {
+        "title": "Dataset ID",
+        "type": "string",
+        "editor": "textfield",
+        "description": "The 4x4 ID in the dataset URL, e.g. ydr8-5enu (Chicago building permits).",
+        "prefill": "ydr8-5enu"
+      },
+      "where": {
+        "title": "Where (SoQL)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. issue_date > '2026-10-01'",
+        "prefill": "issue_date > '2026-10-01'"
+      },
+      "order": {
+        "title": "Order (SoQL)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. issue_date DESC",
+        "prefill": "issue_date DESC"
+      },
+      "select": {
+        "title": "Select (SoQL)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Columns to return; empty for all."
+      },
+      "q": {
+        "title": "Full-text search",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Socrata $q full-text search."
+      }
+    }
+  },
+  "defaultMax": 1000
+}

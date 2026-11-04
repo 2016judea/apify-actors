@@ -1,0 +1,21 @@
+{
+  "ein": "383952644",
+  "name": "MAYO CLINIC GROUP RETURN",
+  "inCareOf": null,
+  "street": "PO BOX 4007",
+  "city": "ROCHESTER",
+  "state": "MN",
+  "zip": "55903-4007",
+  "subsection": "501(c)(3)",
+  "foundationCode": "16",
+  "foundationType": "Publicly supported (gross receipts)",
+  "nteeCode": "E21",
+  "nteeCategory": "Health",
+  "rulingYear": "2014",
+  "taxPeriod": "202412",
+  "assets": 17859698606.0,
+  "income": 14918955280.0,
+  "revenue": 14891458272.0,
+  "deductible": true,
+  "irsLookup": "https://apps.irs.gov/app/eos/details/?ein=383952644"
+}

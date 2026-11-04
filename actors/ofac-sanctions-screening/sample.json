@@ -1,0 +1,17 @@
+{
+  "query": "Banco Nacional de Cuba",
+  "isPotentialMatch": true,
+  "bestScore": 1.0,
+  "matches": [
+    {
+      "score": 1.0,
+      "matchedName": "BANCO NACIONAL DE CUBA",
+      "sdnName": "BANCO NACIONAL DE CUBA",
+      "uid": 306,
+      "type": "entity",
+      "programs": "CUBA",
+      "remarks": "a.k.a. 'BNC'."
+    }
+  ],
+  "listSource": "OFAC SDN + aliases (sanctionslistservice.ofac.treas.gov), fetched at run time"
+}

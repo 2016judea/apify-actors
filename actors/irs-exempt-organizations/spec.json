@@ -1,0 +1,65 @@
+{
+  "title": "IRS Nonprofits & Foundations by State",
+  "description": "Every tax-exempt organization the IRS lists for a state (Exempt Organizations Business Master File): EIN, name, address, 501(c) subsection, foundation type, NTEE category, ruling year, assets, income and revenue. Filter by name, city, NTEE, revenue or private foundations.",
+  "categories": [
+    "LEAD_GENERATION",
+    "BUSINESS"
+  ],
+  "source": "https://www.irs.gov/pub/irs-soi/eo_{state}.csv",
+  "price": 0.002,
+  "eventTitle": "Organization",
+  "eventDescription": "One exempt organization returned",
+  "competitors": "ryanclinton/nonprofit-explorer $0.002; pink_comic/irs-990-nonprofit-search $0.002; santamaria-automations/idealist-scraper $0.003",
+  "why": "The IRS master list, read fresh from irs.gov each run. Tick 'private foundations only' and sort by revenue to get a state's grantmakers.",
+  "useCases": [
+    "Grant writers and nonprofits finding funders (private foundations) near them",
+    "Vendors selling to nonprofits by size and cause (NTEE)",
+    "Researchers sizing a state's nonprofit sector"
+  ],
+  "input": {
+    "properties": {
+      "state": {
+        "title": "State",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Two-letter code",
+        "prefill": "MN"
+      },
+      "name": {
+        "title": "Name contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. FOUNDATION"
+      },
+      "city": {
+        "title": "City",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Exact city in capitals, e.g. MINNEAPOLIS"
+      },
+      "nteePrefix": {
+        "title": "NTEE code prefix",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. T (philanthropy), P (human services), B2 (schools)"
+      },
+      "minRevenue": {
+        "title": "Minimum revenue (USD)",
+        "type": "integer",
+        "editor": "number",
+        "description": "From the latest return the IRS processed.",
+        "prefill": 1000000
+      },
+      "privateFoundationsOnly": {
+        "title": "Private foundations only",
+        "type": "boolean",
+        "editor": "checkbox",
+        "description": "Foundation codes 02, 03, 04.",
+        "default": false
+      }
+    }
+  },
+  "limits": [
+    "Sorted by revenue, largest first. Financials are from the organization's latest return in the IRS file."
+  ]
+}

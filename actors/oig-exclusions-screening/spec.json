@@ -1,0 +1,49 @@
+{
+  "title": "OIG Exclusions Check (LEIE) for Healthcare",
+  "description": "Check people, businesses or NPIs against the HHS-OIG List of Excluded Individuals/Entities, downloaded fresh each run, or list recent exclusions by state. Returns exclusion type and reason, dates, specialty, NPI and address.",
+  "categories": [
+    "BUSINESS",
+    "AUTOMATION"
+  ],
+  "source": "https://oig.hhs.gov/exclusions/downloadables/UPDATED.csv",
+  "price": 0.003,
+  "eventTitle": "Check or exclusion",
+  "eventDescription": "One name/NPI checked, or one exclusion listed",
+  "competitors": "overlookdata/npimcp-oig-exclusion-check $0.003; automation-lab/sam-gov-entity-exclusions-scraper $0.005; pink_comic/cms-snf-ownership-control $0.002",
+  "why": "Medicare and Medicaid won't pay for anything an excluded person touches, so providers must screen staff and vendors monthly. This does that against the live LEIE file.",
+  "useCases": [
+    "Clinics, home-care agencies and pharmacies screening staff monthly",
+    "Credentialing and payer teams",
+    "Healthcare staffing firms"
+  ],
+  "input": {
+    "properties": {
+      "queries": {
+        "title": "Names or NPIs to check",
+        "type": "array",
+        "editor": "stringList",
+        "description": "'First Last', 'Last First', a business name, or a 10-digit NPI. Leave empty to list exclusions.",
+        "prefill": [
+          "Acme Home Health LLC"
+        ]
+      },
+      "state": {
+        "title": "State",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Two-letter code, to narrow matches or listings"
+      },
+      "excludedSince": {
+        "title": "Excluded on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "For listing mode.",
+        "prefill": "2026-01-01"
+      }
+    }
+  },
+  "limits": [
+    "Dates of birth in the source file are never returned.",
+    "Exact normalized name match; confirm any hit against the OIG website before acting."
+  ]
+}

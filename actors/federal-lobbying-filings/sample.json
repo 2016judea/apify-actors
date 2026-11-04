@@ -1,0 +1,35 @@
+{
+  "filingUuid": "9300b2d8-2865-47a7-9814-332d0def57b1",
+  "filingType": "3rd Quarter - Report",
+  "filingYear": 2026,
+  "period": "3rd Quarter (July 1 - Sep 30)",
+  "posted": "2026-10-20T20:41:24-04:00",
+  "income": null,
+  "expenses": null,
+  "registrant": "JGB & ASSOCIATES, LLC",
+  "client": "CORNERSTONE GOVERNMENT AFFAIRS OBO TARGET CORPORATION",
+  "clientState": "MN",
+  "clientDescription": "General merchandise and grocery retail store and online shopping",
+  "issues": [
+    "Defense",
+    "Banking",
+    "Consumer Issues/Safety/Products",
+    "Trade (domestic/foreign)",
+    "Taxation/Internal Revenue Code"
+  ],
+  "specificIssues": [
+    "Issues related to amending the National Defense Authorization Act (S. 4784).",
+    "Issues related to S. 1535, the Common Cents Act; issues related to surveillance pricing.",
+    "Issues surrounding online data and privacy, Kids Online Safety Act (S. 1748), the Kids Internet and Digital Safety Act (HR 7757) and the Children and Teens Online Privacy Protection Act (S. 836 and HR 6291); legislation related to Organized Retail Crime, S. 1404.",
+    "Issues related to trade tariffs and refunds.",
+    "Issues related to innovation, competition and consumer goods; tariff policies; general trade provisions and tariffs."
+  ],
+  "governmentEntities": [
+    "HOUSE OF REPRESENTATIVES",
+    "SENATE"
+  ],
+  "lobbyists": [
+    "JOHN BUSCHER"
+  ],
+  "documentUrl": "https://lda.gov/filings/public/filing/9300b2d8-2865-47a7-9814-332d0def57b1/print/"
+}

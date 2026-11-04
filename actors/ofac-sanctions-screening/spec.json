@@ -1,0 +1,43 @@
+{
+  "title": "OFAC Sanctions Screening (SDN List)",
+  "description": "Screen a list of people, companies or vessels against the US Treasury OFAC SDN list and its aliases, downloaded fresh each run. Returns, per name, whether there is a potential match, the score, and the SDN entry, type, programs and remarks.",
+  "categories": [
+    "BUSINESS",
+    "AUTOMATION"
+  ],
+  "source": "https://sanctionslistservice.ofac.treas.gov/api/publicationpreview/exports/sdn.csv",
+  "price": 0.003,
+  "eventTitle": "Screened name",
+  "eventDescription": "One input name screened",
+  "competitors": "ryanclinton/ofac-sanctions-search $0.002; ryanclinton/opensanctions-search $0.003; brasildados/sanctions-check $0.01",
+  "why": "Fuzzy matching on normalized names (punctuation and legal suffixes stripped, word order ignored) against every SDN name and alias. A potential match is a reason to review, not a determination.",
+  "useCases": [
+    "Fintechs, marketplaces and exporters screening counterparties",
+    "Compliance teams batch-checking vendor lists",
+    "AI agents running a KYC step"
+  ],
+  "input": {
+    "properties": {
+      "names": {
+        "title": "Names to screen",
+        "type": "array",
+        "editor": "stringList",
+        "description": "One per line.",
+        "prefill": [
+          "Banco Nacional de Cuba",
+          "Acme Widgets LLC"
+        ]
+      },
+      "minScore": {
+        "title": "Minimum match score (0-1)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Similarity threshold. 0.85 is a sensible default.",
+        "default": "0.85"
+      }
+    }
+  },
+  "limits": [
+    "Screens the SDN list only (not the consolidated non-SDN lists). Results are potential matches for human review."
+  ]
+}

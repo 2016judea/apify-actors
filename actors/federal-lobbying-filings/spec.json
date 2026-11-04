@@ -1,0 +1,51 @@
+{
+  "title": "Federal Lobbying Disclosure Filings (LD-2)",
+  "description": "Lobbying Disclosure Act filings from the Senate/House LDA database: registrant (lobbying firm), client, quarter, income or expenses, issue areas, specific issues lobbied, government entities contacted and lobbyists named. Filter by client, registrant, year or issue.",
+  "categories": [
+    "BUSINESS",
+    "NEWS"
+  ],
+  "source": "https://lda.gov/api/v1/filings/",
+  "price": 0.003,
+  "eventTitle": "Filing",
+  "eventDescription": "One lobbying filing returned",
+  "competitors": "hanamira/lobbying-disclosure-search $0.005; fortuitous_pirate/senate-lobbying-scraper $0.0035; jungle_synthesizer/lobbying-disclosure-crawler $0.001",
+  "useCases": [
+    "Public-affairs teams tracking who lobbies on their issue",
+    "Journalists following money into an agency",
+    "Sales teams finding companies with active policy spend"
+  ],
+  "input": {
+    "properties": {
+      "clientName": {
+        "title": "Client name",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Target",
+        "prefill": "Target"
+      },
+      "registrantName": {
+        "title": "Registrant (firm) name",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Akin Gump"
+      },
+      "filingYear": {
+        "title": "Filing year",
+        "type": "integer",
+        "editor": "number",
+        "description": "e.g. 2026",
+        "prefill": 2026
+      },
+      "issueCode": {
+        "title": "Specific issue text",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Words in the specific-issues field"
+      }
+    }
+  },
+  "limits": [
+    "Lobbyist names are the registered lobbyists listed on the public filing."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Reddit Post Comments (Full Thread)",
+  "description": "Every comment on one or more Reddit posts, with nesting depth, parent, author, score and time, from the Arctic Shift archive. Pass post URLs or IDs.",
+  "categories": [
+    "SOCIAL_MEDIA"
+  ],
+  "source": "https://arctic-shift.photon-reddit.com/api/comments/tree",
+  "price": 0.003,
+  "eventTitle": "Comment",
+  "eventDescription": "One comment returned",
+  "competitors": "clearpath/reddit-post-comments-bulk-scraper $0.00299; khadinakbar/reddit-posts-comments-scraper $0.003; harshmaur/reddit-comments-scraper $0.0015",
+  "useCases": [
+    "Reading the whole discussion under a launch, complaint or AMA",
+    "Sentiment and voice-of-customer analysis",
+    "Training and evaluation datasets"
+  ],
+  "input": {
+    "properties": {
+      "posts": {
+        "title": "Post URLs or IDs",
+        "type": "array",
+        "editor": "stringList",
+        "description": "e.g. https://www.reddit.com/r/smallbusiness/comments/abc123/... or abc123",
+        "prefill": [
+          "1xeo2j5"
+        ]
+      }
+    }
+  }
+}

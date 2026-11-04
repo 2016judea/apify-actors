@@ -1,0 +1,74 @@
+{
+  "title": "EPA ECHO Facility Compliance & Violations",
+  "description": "EPA-regulated facilities from ECHO: name, address, programs (air, water, hazardous waste), NAICS/SIC, inspections, quarters in violation, significant violator status, formal enforcement actions and penalties. Filter by state, city, ZIP, name, NAICS, violations or penalties.",
+  "categories": [
+    "BUSINESS",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://echodata.epa.gov/echo/echo_rest_services.get_facilities",
+  "price": 0.004,
+  "eventTitle": "Facility",
+  "eventDescription": "One EPA-regulated facility returned",
+  "competitors": "fortuitous_pirate/compliance-data-scraper $0.00375; fortuitous_pirate/epa-echo-facilities $0.015625; ryanclinton/epa-echo-search $0.03",
+  "useCases": [
+    "Environmental consultants and engineering firms finding facilities in violation",
+    "ESG and supply-chain teams screening suppliers",
+    "Lenders and acquirers doing site diligence"
+  ],
+  "input": {
+    "properties": {
+      "state": {
+        "title": "State",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Two-letter code",
+        "prefill": "MN"
+      },
+      "city": {
+        "title": "City",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. MINNEAPOLIS"
+      },
+      "zip": {
+        "title": "ZIP code",
+        "type": "string",
+        "editor": "textfield",
+        "description": "5-digit ZIP"
+      },
+      "name": {
+        "title": "Facility name contains",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. foundry"
+      },
+      "naics": {
+        "title": "NAICS code",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. 331511"
+      },
+      "withViolationsOnly": {
+        "title": "Only facilities with violations",
+        "type": "boolean",
+        "editor": "checkbox",
+        "description": "Quarters in violation > 0.",
+        "default": true
+      },
+      "withPenaltiesOnly": {
+        "title": "Only facilities with penalties",
+        "type": "boolean",
+        "editor": "checkbox",
+        "description": "Total penalties > 0.",
+        "default": false
+      },
+      "activeOnly": {
+        "title": "Active facilities only",
+        "type": "boolean",
+        "editor": "checkbox",
+        "description": "Exclude inactive.",
+        "default": true
+      }
+    }
+  }
+}

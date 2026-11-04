@@ -1,0 +1,59 @@
+{
+  "title": "ArcGIS Feature Layer Exporter (No 2,000-Row Cap)",
+  "description": "Export every row of any public ArcGIS FeatureServer or MapServer layer (city, county and state open-data portals) with a SQL where clause, field list and order. Pages past maxRecordCount, converts dates to ISO and geometry to WGS84.",
+  "categories": [
+    "DEVELOPER_TOOLS",
+    "AUTOMATION"
+  ],
+  "source": "any public ArcGIS REST layer",
+  "price": 0.001,
+  "eventTitle": "Feature",
+  "eventDescription": "One feature (row) exported",
+  "competitors": "htvllc/arcgis-complete-export $0.001; quietdatatools/arcgis-field-domain-change-monitor $0.01",
+  "why": "ArcGIS returns at most maxRecordCount rows (often 1,000 or 2,000) per query and only says so in a flag most scripts ignore, so exports silently stop. This pages with resultOffset until the layer is exhausted.",
+  "useCases": [
+    "Analysts pulling permits, parcels, crashes or inspections from any Hub/ArcGIS portal",
+    "Developers who need a one-shot CSV/JSON of a layer",
+    "AI agents that need rows, not a map"
+  ],
+  "input": {
+    "properties": {
+      "layerUrl": {
+        "title": "Layer URL",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Ends in /FeatureServer/<n> or /MapServer/<n>.",
+        "prefill": "https://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/CCS_Permits/FeatureServer/0"
+      },
+      "where": {
+        "title": "Where clause",
+        "type": "string",
+        "editor": "textfield",
+        "description": "ArcGIS SQL, e.g. permitType = 'Wrecking'",
+        "prefill": "1=1"
+      },
+      "outFields": {
+        "title": "Fields",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Comma-separated, or * for all.",
+        "prefill": "*"
+      },
+      "orderBy": {
+        "title": "Order by",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. issueDate DESC",
+        "prefill": "issueDate DESC"
+      },
+      "includeGeometry": {
+        "title": "Include geometry",
+        "type": "boolean",
+        "editor": "checkbox",
+        "description": "Points as latitude/longitude; polygons as rings in WGS84.",
+        "default": false
+      }
+    }
+  },
+  "defaultMax": 1000
+}

@@ -1,0 +1,47 @@
+{
+  "title": "CMS Hospital Star Ratings & Quality",
+  "description": "Medicare Care Compare data for every US hospital: CMS ID, name, address, phone, type, ownership, emergency services, overall star rating, and mortality, safety, readmission, patient-experience and timeliness measure counts.",
+  "categories": [
+    "BUSINESS",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://data.cms.gov/provider-data/dataset/xubh-q36u",
+  "price": 0.003,
+  "eventTitle": "Hospital",
+  "eventDescription": "One hospital returned",
+  "competitors": "jungle_synthesizer/cms-hospital-crawler $0.001; lexis-solutions/hospitalcareers-com-scraper $0.0029; commanding_hotdog/healthgrades-scraper $0.003",
+  "useCases": [
+    "Health-tech and med-device sales teams building hospital lists",
+    "Patients and journalists comparing quality",
+    "Analysts studying ownership vs ratings"
+  ],
+  "input": {
+    "properties": {
+      "state": {
+        "title": "State",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Two-letter code",
+        "prefill": "MN"
+      },
+      "city": {
+        "title": "City",
+        "type": "string",
+        "editor": "textfield",
+        "description": "City in capitals"
+      },
+      "hospitalType": {
+        "title": "Hospital type",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Acute Care Hospitals, Critical Access Hospitals"
+      },
+      "minRating": {
+        "title": "Minimum overall star rating",
+        "type": "integer",
+        "editor": "number",
+        "description": "1-5"
+      }
+    }
+  }
+}

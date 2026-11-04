@@ -1,0 +1,21 @@
+{
+  "FacName": " Y  MART",
+  "FacState": "MN",
+  "RegistryID": "110049456986",
+  "FacCounty": "CASS",
+  "SDWASystemTypes": "Transient non-community system",
+  "FacSNCFlg": "N",
+  "FacQtrsWithNC": "0",
+  "FacComplianceStatus": "No Violation Identified",
+  "SDWAComplianceStatus": "No Violation Identified",
+  "FacInspectionCount": "0",
+  "FacFormalActionCount": "0",
+  "FacTotalPenalties": "$0",
+  "SDWA3yrComplQtrsHistory": "_____________",
+  "FacAccuracyMeters": "30000",
+  "FacMyrtkUniverse": "NNN",
+  "SDWISFlag": "Y",
+  "GHGFlag": "N",
+  "Insp5yrFlag": "0",
+  "echoUrl": "https://echo.epa.gov/detailed-facility-report?fid=110049456986"
+}

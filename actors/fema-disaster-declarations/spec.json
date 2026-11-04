@@ -1,0 +1,42 @@
+{
+  "title": "FEMA Disaster Declarations",
+  "description": "Every FEMA disaster declaration since 1953 from OpenFEMA: disaster number, state, county/area, incident type, title, declaration and incident dates, programs declared (IA, PA, HM) and closeout. Filter by state, date or incident type.",
+  "categories": [
+    "NEWS",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://www.fema.gov/api/open/v2/DisasterDeclarationsSummaries",
+  "price": 0.002,
+  "eventTitle": "Declaration",
+  "eventDescription": "One declaration (per designated area) returned",
+  "competitors": "ryanclinton/fema-disaster-search $0.002; fortuitous_pirate/fema-flood-scraper $0.002; fiery_dream/disaster-intel $0.00001",
+  "useCases": [
+    "Restoration contractors and adjusters finding newly declared counties",
+    "Lenders and insurers tracking exposure",
+    "Grant consultants watching Hazard Mitigation and Public Assistance"
+  ],
+  "input": {
+    "properties": {
+      "state": {
+        "title": "State",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Two-letter code",
+        "prefill": "MN"
+      },
+      "declaredSince": {
+        "title": "Declared on or after (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Only declarations on or after this date.",
+        "prefill": "2020-01-01"
+      },
+      "incidentType": {
+        "title": "Incident type",
+        "type": "string",
+        "editor": "textfield",
+        "description": "e.g. Flood, Severe Storm, Fire, Hurricane"
+      }
+    }
+  }
+}

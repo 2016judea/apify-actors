@@ -1,0 +1,35 @@
+{
+  "title": "US Address Geocoder with Census Tract (Free Data)",
+  "description": "Geocode US street addresses with the official Census Bureau geocoder: matched address, latitude/longitude, state and county FIPS, census tract and block group GEOIDs, place and congressional district. One result per address.",
+  "categories": [
+    "AUTOMATION",
+    "DEVELOPER_TOOLS"
+  ],
+  "source": "https://geocoding.geo.census.gov/geocoder/",
+  "price": 0.001,
+  "eventTitle": "Address",
+  "eventDescription": "One address geocoded",
+  "competitors": "ryanclinton/nominatim-geocoder $0.001; axlymxp/doordash-google-placeid-scraper $0.002; kaix/google-geocoding-scraper $0.0001",
+  "useCases": [
+    "Lenders checking CRA/LMI tracts, opportunity zones and FIPS",
+    "Analysts joining addresses to census data",
+    "Lead lists that need coordinates"
+  ],
+  "input": {
+    "properties": {
+      "addresses": {
+        "title": "Addresses",
+        "type": "array",
+        "editor": "stringList",
+        "description": "One full US address per line.",
+        "prefill": [
+          "350 S 5th St, Minneapolis, MN 55415",
+          "1600 Pennsylvania Ave NW, Washington, DC 20500"
+        ]
+      }
+    }
+  },
+  "limits": [
+    "US addresses only. Unmatched addresses return matched=false (and are still billed as a lookup)."
+  ]
+}

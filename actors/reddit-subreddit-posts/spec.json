@@ -1,0 +1,62 @@
+{
+  "title": "Reddit Subreddit Posts by Date & Keyword",
+  "description": "Every post in a subreddit for a date window, from the Arctic Shift Reddit archive (no login, no Reddit API): title, text, author, score, comments, flair, time and permalink. Filter locally by keywords and minimum score. Pages oldest-first so nothing is dropped.",
+  "categories": [
+    "SOCIAL_MEDIA",
+    "LEAD_GENERATION"
+  ],
+  "source": "https://arctic-shift.photon-reddit.com/api/posts/search",
+  "price": 0.008,
+  "eventTitle": "Post",
+  "eventDescription": "One Reddit post returned",
+  "competitors": "trudax/reddit-scraper-lite $0.02; harshmaur/reddit-scraper $0.02; automation-lab/reddit-scraper $0.003",
+  "why": "Archive search APIs silently cap a request at ~100 rows and drop the rest of the window. This actor pages oldest-first with a moving cursor, so a busy day of a big subreddit comes back whole.",
+  "useCases": [
+    "Founders and marketers mining what customers actually say (pain points, tools, prices)",
+    "Brand and competitor monitoring",
+    "Researchers building datasets"
+  ],
+  "input": {
+    "properties": {
+      "subreddit": {
+        "title": "Subreddit",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Without r/",
+        "prefill": "smallbusiness"
+      },
+      "after": {
+        "title": "From date (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "Start of the window.",
+        "prefill": "2026-10-25"
+      },
+      "before": {
+        "title": "To date (YYYY-MM-DD)",
+        "type": "string",
+        "editor": "textfield",
+        "description": "End of the window (default: now)."
+      },
+      "keywords": {
+        "title": "Keywords (any)",
+        "type": "array",
+        "editor": "stringList",
+        "description": "Keep posts whose title or text contains any of these. Empty keeps all.",
+        "prefill": [
+          "pricing"
+        ]
+      },
+      "minScore": {
+        "title": "Minimum score",
+        "type": "integer",
+        "editor": "number",
+        "description": "Keep posts at or above this score."
+      }
+    }
+  },
+  "limits": [
+    "Data comes from the Arctic Shift archive, typically a day or two behind Reddit.",
+    "Deleted and removed posts appear as the archive captured them."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "input": "350 S 5th St, Minneapolis, MN 55415",
+  "matched": true,
+  "matchedAddress": "350 S 5TH ST, MINNEAPOLIS, MN, 55415",
+  "longitude": -93.265785679531,
+  "latitude": 44.976828522245,
+  "stateFips": "27",
+  "state": "MN",
+  "countyFips": "27053",
+  "county": "Hennepin County",
+  "tractGeoid": "27053126102",
+  "tract": "Census Tract 1261.02",
+  "blockGroupGeoid": "270531261021008",
+  "place": "Minneapolis city",
+  "placeGeoid": "2743000",
+  "congressionalDistrict": "Congressional District 5",
+  "tigerLineId": "43632452"
+}
