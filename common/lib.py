@@ -94,8 +94,14 @@ class Client:
                 delay *= 2
                 continue
             if r.status_code in (429, 500, 502, 503, 504) and attempt < 5:
-                ra = r.headers.get("retry-after")
-                await asyncio.sleep(float(ra) if ra and ra.isdigit() else delay)
+                # Honour the server's wait only on 429 (a rate limit), capped at 60 s.
+                # On 5xx use our own backoff: Cloudflare stamps `retry-after: 60` on
+                # every 502 from a dead origin, and honouring it slept 5 x 60 s before
+                # failing, past Apify's 5-minute auto-test (reddit-subreddit-posts,
+                # flagged UNDER_MAINTENANCE 2026-11).
+                ra = r.headers.get("retry-after") or r.headers.get("x-ratelimit-reset")
+                wait = min(float(ra), 60.0) if r.status_code == 429 and ra and ra.isdigit() else delay
+                await asyncio.sleep(wait)
                 delay *= 2
                 continue
             r.raise_for_status()

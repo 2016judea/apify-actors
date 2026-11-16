@@ -2,15 +2,19 @@
 # Flip tested, priced actors in ledger.tsv to public in the Apify Store, highest-demand first.
 # Apify allows 5 publications per day; this stops at the limit, so it runs daily from launchd
 # (~/Library/LaunchAgents/local.apify-publish.plist). launchd runs it from a clone at
-# ~/.local/share/apify-actors, NOT ~/Desktop: macOS privacy blocks launchd from Desktop (exit 127). until nothing is left, then unloads itself.
+# ~/.local/share/apify-actors, NOT ~/Desktop: macOS privacy blocks launchd from Desktop (exit 127).
+# It also runs scripts/health.py first, which clears Apify's UNDER_MAINTENANCE flag once a
+# broken actor works again, so the job stays loaded after the publish queue empties (2026-11-16).
+# The clone needs its own venv: python3 -m venv .venv && .venv/bin/pip install httpx
 cd "$(dirname "$0")/.."
 git pull -q --rebase || true
+.venv/bin/python -u scripts/health.py || echo "$(date '+%F %T') health check errored"
 T=$(security find-generic-password -s com.apify.cli -a token -w)
 # Broad, recurring buyer demand first (compliance, finance, healthcare, Reddit); Twin Cities last.
 FIRST="sec-insider-trades sec-edgar-full-text-search ofac-sanctions-screening oig-exclusions-screening npi-registry sec-company-financials sec-edgar-filings reddit-subreddit-posts reddit-post-comments usaspending-awards socrata-dataset-query fdic-banks openfda-recalls openfda-device-clearances grants-gov-opportunities"
 pending=$(awk -F'\t' 'NR>1 && $8 == "priced-awaiting-store-terms" {print $1}' ledger.tsv)
 order=$( { for a in $FIRST; do echo "$pending" | grep -qx "$a" && echo "$a"; done; echo "$pending"; } | awk '!seen[$0]++' )
-[ -z "$order" ] && { echo "nothing left to publish"; launchctl unload ~/Library/LaunchAgents/local.apify-publish.plist 2>/dev/null; exit 0; }
+[ -z "$order" ] && { echo "$(date '+%F %T') nothing left to publish"; exit 0; }
 for a in $order; do
   r=$(curl -s -X PUT "https://api.apify.com/v2/acts/cheerful_term~$a" -H "Authorization: Bearer $T" \
       -H 'content-type: application/json' -d '{"isPublic":true}')

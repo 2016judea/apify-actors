@@ -7,6 +7,7 @@ the run when the user's max-charge budget is spent.
 """
 import asyncio
 
+import httpx
 from apify import Actor
 
 from .impl import run
@@ -44,10 +45,20 @@ async def main() -> None:
             if count >= max_items:
                 raise _Stop()
 
+        upstream_down = None
         try:
             await run(inp, client, emit)
         except _Stop:
             pass
+        except (httpx.HTTPStatusError, httpx.TransportError) as e:
+            # The public source is down or refusing. Say so in plain words instead of a
+            # traceback; rows already pushed are kept (and charged), nothing else is.
+            try:
+                host = e.request.url.host  # the property raises if httpx never set it
+            except RuntimeError:
+                host = "The source"
+            code = f"HTTP {e.response.status_code}" if isinstance(e, httpx.HTTPStatusError) else type(e).__name__
+            upstream_down = f"{host} is not responding ({code}). This is the public data source, not your input. {count} results returned; try again later."
         finally:
             try:
                 await flush()
@@ -55,6 +66,10 @@ async def main() -> None:
                 pass
             await client.close()
         Actor.log.info(f"Done: {count} items")
+        if upstream_down:
+            Actor.log.error(upstream_down)
+            await Actor.fail(status_message=upstream_down)
+            return
         if count == 0:
             await Actor.set_status_message("No results matched this input.")
         else:
