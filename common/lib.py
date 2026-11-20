@@ -93,7 +93,12 @@ class Client:
                 await asyncio.sleep(delay)
                 delay *= 2
                 continue
-            if r.status_code in (429, 500, 502, 503, 504) and attempt < 5:
+            # Arctic Shift reports its own overload as 422 {"error":"Timeout. Maybe slow
+            # down a bit"}, and the same query returns 200 seconds later. Failing on it at
+            # once failed Apify's auto-test in 3 s and flagged reddit-subreddit-posts
+            # UNDER_MAINTENANCE (2026-11-19/20). A real 422 (bad input) has no "timeout".
+            busy = r.status_code == 422 and "timeout" in r.text.lower()
+            if (busy or r.status_code in (429, 500, 502, 503, 504)) and attempt < 5:
                 # Honour the server's wait only on 429 (a rate limit), capped at 60 s.
                 # On 5xx use our own backoff: Cloudflare stamps `retry-after: 60` on
                 # every 502 from a dead origin, and honouring it slept 5 x 60 s before
